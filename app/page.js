@@ -24,9 +24,9 @@ function SectionHeading({ kicker, title, description }) {
 export default function HomePage() {
   const containerRef = useRef(null);
   const heroImages = [
-    "/projects/project-jaguar.jpg",
-    "https://www.inrestsro.sk/wp-content/uploads/SIKO-BA-BORY-final-06.2023-12.jpg",
-    "https://www.inrestsro.sk/wp-content/uploads/20220324_134351.jpg"
+    "/projects/realizacie/SIKO-BA-BORY-final-06.2023-12.jpg",
+    "/projects/realizacie/20220324_134351.jpg",
+    "/projects/project-jaguar.jpg"
   ];
 
   const [activeHero, setActiveHero] = useState(0);
