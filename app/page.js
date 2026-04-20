@@ -151,7 +151,7 @@ export default function HomePage() {
 
             <div className="flex flex-wrap gap-4 pt-4">
               <a href="/realizacie" className="button-primary">
-                Referencie
+                Realizácie
               </a>
               <a href="#kontakt" className="button-secondary !border-white/20 !bg-white/10 !text-white backdrop-blur-sm">
                 Kontakt
