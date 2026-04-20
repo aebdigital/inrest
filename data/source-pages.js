@@ -66,7 +66,7 @@ MAKROLON, TITAN-TATRAPLAST, ZENIT, RODA …
     image: "/projects/vyroba/vyroba-1.jpg",
     content: [
       {
-        text: `**Spoločnosť Inrest s.r.o.** ponúka spracovanie plechu pomocou CNC strojov, najrôznejších druhov a tvarov pre šikmé strechy, ploché strechy, opláštenia budov, okenné parapety a veľa ďalších klampiarských výrobkov podľa požiadaviek zákazníka.
+        text: `Spoločnosť Inrest s.r.o. ponúka spracovanie plechu pomocou CNC strojov, najrôznejších druhov a tvarov pre šikmé strechy, ploché strechy, opláštenia budov, okenné parapety a veľa ďalších klampiarských výrobkov podľa požiadaviek zákazníka.
 
 Naše služby v oblasti klampiarskej výroby:
 - Ohýbanie plechov
