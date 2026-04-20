@@ -40,57 +40,59 @@ export function SiteHeader() {
   }, [isOpen]);
 
   return (
-    <header className="fixed top-0 z-50 w-full bg-white/90 border-b border-line backdrop-blur-md">
-      <div className="shell flex items-center justify-between gap-8 py-5">
-        <Link href="/" className="flex items-center gap-3">
-          <Image
-            src="/media/logo.png"
-            alt="INREST"
-            width={200}
-            height={56}
-            className="h-9 w-auto md:h-11"
-            priority
-          />
-        </Link>
+    <>
+      <header className="fixed top-0 z-50 w-full bg-white/90 border-b border-line backdrop-blur-md">
+        <div className="shell flex items-center justify-between gap-8 py-5">
+          <Link href="/" className="flex items-center gap-3">
+            <Image
+              src="/media/logo.png"
+              alt="INREST"
+              width={200}
+              height={56}
+              className="h-9 w-auto md:h-11"
+              priority
+            />
+          </Link>
 
-        {/* Desktop Nav */}
-        <nav className="hidden items-center gap-8 text-[12px] font-bold uppercase tracking-[0.18em] text-muted lg:flex">
-          {navItems.map((item) => {
-            const isActive = pathname === item.href || (item.href !== "/" && pathname.startsWith(item.href));
-            
-            return (
-              <Link 
-                key={item.href} 
-                href={item.href} 
-                className={`group relative py-1 transition-colors hover:text-foreground ${isActive ? "text-foreground" : "text-muted"}`}
-              >
-                {item.label}
-                <span className={`absolute bottom-0 left-0 h-[2px] bg-[var(--accent)] transition-all duration-300 ease-out ${isActive ? "w-full" : "w-0 group-hover:w-full"}`} />
-              </Link>
-            );
-          })}
-        </nav>
+          {/* Desktop Nav */}
+          <nav className="hidden items-center gap-8 text-[12px] font-bold uppercase tracking-[0.18em] text-muted lg:flex">
+            {navItems.map((item) => {
+              const isActive = pathname === item.href || (item.href !== "/" && pathname.startsWith(item.href));
+              
+              return (
+                <Link 
+                  key={item.href} 
+                  href={item.href} 
+                  className={`group relative py-1 transition-colors hover:text-foreground ${isActive ? "text-foreground" : "text-muted"}`}
+                >
+                  {item.label}
+                  <span className={`absolute bottom-0 left-0 h-[2px] bg-[var(--accent)] transition-all duration-300 ease-out ${isActive ? "w-full" : "w-0 group-hover:w-full"}`} />
+                </Link>
+              );
+            })}
+          </nav>
 
-        <div className="flex items-center gap-4">
-          <a href={`tel:${siteConfig.phone.replace(/\s+/g, "")}`} className="button-primary hidden xl:inline-flex !py-2.5 !px-5 !text-[11px]">
-            {siteConfig.phone}
-          </a>
+          <div className="flex items-center gap-4">
+            <a href={`tel:${siteConfig.phone.replace(/\s+/g, "")}`} className="button-primary hidden xl:inline-flex !py-2.5 !px-5 !text-[11px]">
+              {siteConfig.phone}
+            </a>
 
-          {/* Mobile Toggle */}
-          <button 
-            onClick={() => setIsOpen(!isOpen)}
-            className="flex h-10 w-10 items-center justify-center rounded-lg border border-line/20 bg-zinc-50 lg:hidden"
-            aria-label="Toggle Menu"
-          >
-            {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </button>
+            {/* Mobile Toggle */}
+            <button 
+              onClick={() => setIsOpen(!isOpen)}
+              className="flex h-10 w-10 items-center justify-center rounded-lg border border-line/20 bg-zinc-50 lg:hidden"
+              aria-label="Toggle Menu"
+            >
+              {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </button>
+          </div>
         </div>
-      </div>
+      </header>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Menu Overlay - OUTSIDE of header to avoid backdrop-filter fixed-position bug */}
       <AnimatePresence>
         {isOpen && (
-          <div className="fixed inset-0 z-55 lg:hidden">
+          <div className="fixed inset-0 z-[100] lg:hidden">
             <motion.div 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -109,7 +111,7 @@ export function SiteHeader() {
                 stiffness: 400,
                 mass: 1
               }}
-              className="fixed bottom-0 left-0 right-0 z-60 h-[70dvh] bg-white rounded-t-[3rem] shadow-[0_-15px_60px_rgba(0,0,0,0.2)] flex flex-col p-10 pb-[env(safe-area-inset-bottom,40px)]"
+              className="fixed bottom-0 left-0 right-0 z-[110] h-[70dvh] bg-white rounded-t-[3rem] shadow-[0_-15px_60px_rgba(0,0,0,0.2)] flex flex-col p-10 pb-[env(safe-area-inset-bottom,40px)]"
             >
               <div className="mx-auto mb-10 h-1.5 w-16 flex-shrink-0 rounded-full bg-zinc-200" />
               
@@ -144,7 +146,7 @@ export function SiteHeader() {
           </div>
         )}
       </AnimatePresence>
-    </header>
+    </>
   );
 }
 
