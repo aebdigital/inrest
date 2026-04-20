@@ -73,7 +73,8 @@ Naše služby v oblasti klampiarskej výroby:
 - Vysekávanie dier do plechov
 - Výroba klampiarskych prvkov
 - Priečne a pozdĺžne rezanie plechov`,
-        image: "/projects/vyroba/vyroba-1.jpg"
+        image: "/projects/vyroba/vyroba-1.jpg",
+        aspect: "aspect-video"
       },
       {
         text: `Maximálna dĺžka ohybaných/hranených prvkov:
@@ -92,7 +93,8 @@ Dielenské vybavenie:
 - Vysekávací lis Boschert EccoLine
 
 *Na požiadanie zákazníka vieme zabezpečiť odvodňovací systém, spojovací a tesniací materiál do 24h.*`,
-        image: "/projects/vyroba/vyroba-2.jpg"
+        image: "/projects/vyroba/vyroba-2.jpg",
+        aspect: "aspect-[4/5] lg:aspect-[3/4]"
       }
     ],
     gallery: [

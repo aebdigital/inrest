@@ -55,7 +55,7 @@ export default async function ServicePage({ params }) {
                   <SourceCopy>{block.text}</SourceCopy>
                 </div>
                 <Reveal className={index % 2 === 1 ? "lg:order-1" : "lg:order-2"}>
-                  <div className="relative aspect-video overflow-hidden rounded-2xl border border-line/20 shadow-2xl">
+                  <div className={`relative ${block.aspect || "aspect-video"} overflow-hidden rounded-2xl border border-line/20 shadow-2xl`}>
                     <Image 
                       src={block.image} 
                       alt={`${page.title} - ${index + 1}`} 
