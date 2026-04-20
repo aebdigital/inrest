@@ -185,7 +185,7 @@ export function SiteHeader() {
                     >
                       <Link 
                         href={item.href}
-                        className={`text-3xl font-extrabold tracking-tight ${isActive ? "text-accent" : "text-zinc-900"}`}
+                        className={`text-2xl font-bold tracking-wide ${isActive ? "text-accent" : "text-zinc-900"}`}
                       >
                         {item.label}
                       </Link>
