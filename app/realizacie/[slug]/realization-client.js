@@ -30,6 +30,7 @@ export function RealizationClient({ page, realizationPages }) {
                   fill 
                   className="object-cover transition-all duration-700 group-hover:scale-110" 
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  priority={pIdx < 4}
                 />
               </div>
               <div className="p-3">

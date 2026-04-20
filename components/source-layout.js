@@ -64,6 +64,7 @@ export function SidebarShell({ kicker, title, description, image, items, activeS
                         fill 
                         className={`object-cover transition-all duration-700 ${isActive ? "grayscale-0 scale-105" : "grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-80 group-hover:scale-110"}`} 
                         sizes="(max-width: 1024px) 100vw, 300px"
+                        priority={isActive}
                       />
                       <div className={`absolute inset-0 transition-colors duration-500 ${isActive ? "bg-black/20" : "bg-black/50 group-hover:bg-black/30"}`} />
                       <div className="absolute inset-0 flex items-center justify-center pointer-events-none p-2">
@@ -78,7 +79,7 @@ export function SidebarShell({ kicker, title, description, image, items, activeS
             </nav>
           </aside>
 
-          <div className="grid gap-6">{children}</div>
+          <div className="grid gap-6 min-h-[60vh]">{children}</div>
         </div>
       </section>
     </main>
