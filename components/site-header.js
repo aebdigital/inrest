@@ -77,29 +77,34 @@ export function SiteHeader() {
                   </Link>
 
                   {isServices && (
-                    <div className="invisible absolute left-1/2 top-full w-72 -translate-x-1/2 transform pt-0 opacity-0 transition-all duration-300 group-hover:visible group-hover:opacity-100">
-                      <div className="mt-2 overflow-hidden rounded-2xl border border-line/20 bg-white shadow-2xl">
-                        <div className="bg-zinc-50/50 p-2">
-                          {servicePages.map((service) => (
+                    <div className="invisible absolute left-1/2 top-full w-[calc(min(90vw,1200px))] -translate-x-1/2 transform pt-0 opacity-0 transition-all duration-300 group-hover:visible group-hover:opacity-100">
+                      <div className="mt-4 overflow-hidden rounded-[2rem] border border-white/10 bg-[#0f172a] shadow-[0_40px_100px_rgba(0,0,0,0.4)] backdrop-blur-xl">
+                        <div className="grid grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-1 p-10">
+                          {servicePages.map((service, sidx) => (
                             <Link
                               key={service.slug}
                               href={`/sluzby/${service.slug}`}
-                              className="group/item flex items-center gap-3 rounded-xl p-3 transition-colors hover:bg-white hover:shadow-sm"
+                              className="group/item flex items-center justify-between border-b border-white/5 py-4 transition-colors hover:border-accent/40"
                             >
-                              <div className="relative h-10 w-10 flex-shrink-0 overflow-hidden rounded-lg bg-zinc-200">
-                                <Image 
-                                  src={service.image} 
-                                  alt={service.title} 
-                                  fill 
-                                  className="object-cover transition-transform duration-500 group-hover/item:scale-110" 
-                                  sizes="40px"
-                                />
+                              <div className="flex flex-col">
+                                <span className="mb-0.5 text-[8px] font-bold uppercase tracking-[0.2em] text-white/30">
+                                  0{sidx + 1}
+                                </span>
+                                <span className="hover-split-text text-[13px] font-bold tracking-tight text-white/80">
+                                  <span className="hover-split-text-inner" data-text={service.title}>
+                                    {service.title}
+                                  </span>
+                                </span>
                               </div>
-                              <span className="text-[11px] font-bold tracking-wider text-muted transition-colors group-hover/item:text-foreground line-clamp-1">
-                                {service.title}
-                              </span>
+                              <div className="h-0.5 w-0 bg-accent transition-all duration-500 group-hover/item:w-6" />
                             </Link>
                           ))}
+                        </div>
+                        <div className="bg-white/[0.03] px-10 py-6 border-t border-white/5 flex items-center justify-between">
+                          <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-white/20">Kompletné portfólio služieb spoločnosti INREST</p>
+                          <Link href="/sluzby" className="text-[10px] font-bold uppercase tracking-[0.2em] text-accent hover:text-white transition-colors">
+                            Všetky služby
+                          </Link>
                         </div>
                       </div>
                     </div>
@@ -139,20 +144,31 @@ export function SiteHeader() {
               className="absolute inset-0 bg-black/60 backdrop-blur-md"
             />
             <motion.div
-              initial={{ y: "105%" }}
+              initial={{ y: "-100%" }}
               animate={{ y: 0 }}
-              exit={{ y: "105%" }}
-              transition={{ 
-                type: "spring", 
-                damping: 38, 
-                stiffness: 400,
-                mass: 1
-              }}
-              className="fixed bottom-0 left-0 right-0 z-[110] h-[70dvh] bg-white rounded-t-[3rem] shadow-[0_-15px_60px_rgba(0,0,0,0.2)] flex flex-col p-10 pb-[env(safe-area-inset-bottom,40px)]"
+              exit={{ y: "-100%" }}
+              transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
+              className="fixed inset-0 z-[110] flex flex-col bg-[#0f172a] p-10 pb-[env(safe-area-inset-bottom,40px)]"
             >
-              <div className="mx-auto mb-10 h-1.5 w-16 flex-shrink-0 rounded-full bg-zinc-200" />
+              <div className="flex items-center justify-between mb-12">
+                <div className="relative">
+                  <Image
+                    src="/media/logo.png"
+                    alt="INREST"
+                    width={140}
+                    height={40}
+                    className="h-8 w-auto invert brightness-200"
+                  />
+                </div>
+                <button 
+                  onClick={() => setIsOpen(false)} 
+                  className="rounded-full border border-white/20 p-3 text-white hover:bg-white/10 transition-colors"
+                >
+                  <X className="h-6 w-6" />
+                </button>
+              </div>
               
-              <div className="flex flex-col gap-6 overflow-y-auto pr-4 scrollbar-hide pb-10">
+              <div className="flex flex-col gap-10 overflow-y-auto pr-4 scrollbar-hide pb-10">
                 {navItems.map((item, idx) => {
                   const isActive = pathname === item.href || (item.href !== "/" && pathname.startsWith(item.href));
                   const isServices = item.label === "Služby";
@@ -160,27 +176,41 @@ export function SiteHeader() {
                   return (
                     <motion.div
                       key={item.href}
-                      initial={{ opacity: 0, y: 15 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.1 + idx * 0.04 }}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.1 + idx * 0.05 }}
                     >
                       <Link 
                         href={item.href}
-                        className={`text-3xl font-extrabold tracking-tight ${isActive ? "text-accent" : "text-zinc-900"}`}
+                        className={`group block text-4xl font-black uppercase tracking-tight ${isActive ? "text-accent" : "text-white/40 hover:text-white transition-colors"}`}
                       >
-                        {item.label}
+                        <span className="hover-split-text leading-tight">
+                          <span className="hover-split-text-inner" data-text={item.label}>
+                            {item.label}
+                          </span>
+                        </span>
                       </Link>
 
                       {isServices && (
-                        <div className="mt-4 grid grid-cols-1 gap-2 border-l border-line/20 pl-6">
-                          {servicePages.map((service) => (
-                            <Link
+                        <div className="mt-8 grid grid-cols-1 gap-4 border-l border-white/10 pl-8">
+                          {servicePages.map((service, sidx) => (
+                            <motion.div
                               key={service.slug}
-                              href={`/sluzby/${service.slug}`}
-                              className="py-1.5 text-sm font-bold tracking-wider text-muted hover:text-foreground"
+                              initial={{ opacity: 0, x: -10 }}
+                              animate={{ opacity: 1, x: 0 }}
+                              transition={{ delay: 0.3 + sidx * 0.03 }}
                             >
-                              {service.title}
-                            </Link>
+                              <Link
+                                href={`/sluzby/${service.slug}`}
+                                className="group/item flex items-center justify-between py-1 text-sm font-bold uppercase tracking-[0.2em] text-white/50 hover:text-accent transition-colors"
+                              >
+                                <span className="hover-split-text">
+                                  <span className="hover-split-text-inner" data-text={service.title}>
+                                    {service.title}
+                                  </span>
+                                </span>
+                              </Link>
+                            </motion.div>
                           ))}
                         </div>
                       )}
@@ -189,10 +219,11 @@ export function SiteHeader() {
                 })}
               </div>
 
-              <div className="mt-auto pt-8 border-t border-line/10">
-                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted mb-4 opacity-50">Kontakt</p>
+              <div className="mt-auto pt-8 border-t border-white/5">
+                <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-white/20 mb-4">Kontakt</p>
                 <div className="space-y-1">
-                  <p className="text-lg font-bold tracking-tight text-zinc-900">{siteConfig.email}</p>
+                  <p className="text-xl font-bold tracking-tight text-white">{siteConfig.phone}</p>
+                  <p className="text-base font-medium text-white/40">{siteConfig.email}</p>
                 </div>
               </div>
             </motion.div>
