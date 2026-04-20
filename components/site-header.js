@@ -42,7 +42,7 @@ export function SiteHeader() {
 
   return (
     <>
-      <header className="fixed top-0 z-50 w-full max-w-full overflow-hidden bg-white/90 border-b border-line backdrop-blur-md">
+      <header className="fixed top-0 z-50 w-full max-w-full bg-white/90 border-b border-line backdrop-blur-md">
         <div className="shell flex items-center justify-between gap-8 py-5">
           <Link href="/" className="flex items-center gap-3">
             <Image
