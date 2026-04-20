@@ -167,7 +167,7 @@ export function SiteHeader() {
                 stiffness: 400, 
                 mass: 1 
               }}
-              className="fixed bottom-0 left-0 right-0 z-[110] h-[70dvh] bg-white rounded-t-[3rem] shadow-[0_-15px_60px_rgba(0,0,0,0.2)] flex flex-col p-10 pb-[env(safe-area-inset-bottom,40px)]"
+              className="fixed bottom-0 left-0 right-0 z-[110] h-[70dvh] bg-white rounded-t-[3rem] shadow-[0_-15px_60px_rgba(0,0,0,0.2)] flex flex-col p-8 px-12 pb-[env(safe-area-inset-bottom,40px)]"
             >
               <div className="mx-auto mb-10 h-1.5 w-16 flex-shrink-0 rounded-full bg-zinc-200" />
               
@@ -185,7 +185,7 @@ export function SiteHeader() {
                     >
                       <Link 
                         href={item.href}
-                        className={`text-2xl font-bold tracking-wide ${isActive ? "text-accent" : "text-zinc-900"}`}
+                        className={`inline-block translate-x-1 py-1 text-2xl font-bold tracking-wide ${isActive ? "text-accent" : "text-zinc-900"}`}
                       >
                         {item.label}
                       </Link>
