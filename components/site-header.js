@@ -77,15 +77,15 @@ export function SiteHeader() {
                   </Link>
 
                   {isServices && (
-                    <div className="invisible absolute left-1/2 top-full w-screen max-w-[100vw] -translate-x-1/2 transform pt-0 opacity-0 transition-all duration-300 group-hover:visible group-hover:opacity-100">
-                      <div className="mt-0 overflow-hidden border-b border-line bg-white/95 shadow-[0_40px_100px_rgba(0,0,0,0.1)] backdrop-blur-xl">
-                        <div className="shell py-10 px-4">
-                          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                    <div className="invisible fixed left-0 top-[85px] w-full max-w-[100vw] opacity-0 transition-all duration-300 group-hover:visible group-hover:opacity-100 z-50">
+                      <div className="overflow-hidden border-b border-line bg-white/95 shadow-[0_40px_100px_rgba(0,0,0,0.1)] backdrop-blur-xl">
+                        <div className="shell py-10 px-8">
+                          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-5">
                             {servicePages.map((service, sidx) => (
                               <Link
                                 key={service.slug}
                                 href={`/sluzby/${service.slug}`}
-                                className="group/item flex flex-col gap-3 p-3 rounded-2xl transition-all hover:bg-zinc-50 border border-transparent hover:border-line/10"
+                                className="group/item flex flex-col gap-3 p-2 rounded-2xl transition-all hover:bg-zinc-50 border border-transparent hover:border-line/10"
                               >
                                 <div className="relative aspect-[16/11] overflow-hidden rounded-xl border border-line/10 bg-zinc-100">
                                   <Image 
@@ -93,14 +93,14 @@ export function SiteHeader() {
                                     alt={service.title} 
                                     fill 
                                     className="object-cover transition-transform duration-700 group-hover/item:scale-110" 
-                                    sizes="200px"
+                                    sizes="250px"
                                   />
                                   <div className="absolute inset-0 bg-black/5 transition-opacity group-hover/item:opacity-0" />
                                   <div className="absolute top-2 left-2 bg-white/90 backdrop-blur px-1.5 py-0.5 rounded text-[8px] font-black tracking-widest uppercase text-zinc-900">
                                     0{sidx + 1}
                                   </div>
                                 </div>
-                                <div className="flex flex-col gap-1.5 px-0.5">
+                                <div className="flex flex-col gap-1 px-0.5">
                                   <span className="hover-split-text text-[9px] font-bold uppercase tracking-wider text-muted group-hover/item:text-foreground transition-colors overflow-hidden">
                                     <span className="hover-split-text-inner" data-text={service.title}>
                                       {service.title}
@@ -112,9 +112,9 @@ export function SiteHeader() {
                             ))}
                           </div>
                         </div>
-                        <div className="bg-zinc-50/50 px-8 py-6 border-t border-line/10">
+                        <div className="bg-zinc-50/50 px-8 py-5 border-t border-line/10">
                           <div className="shell flex items-center justify-between gap-4">
-                            <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-muted opacity-50">Služby spoločnosti INREST s.r.o. — Komplexné riešenia pre priemysel a logistiku</p>
+                            <p className="text-[9px] font-bold uppercase tracking-[0.3em] text-muted opacity-40">Služby spoločnosti INREST s.r.o. — Komplexné riešenia pre priemysel a logistiku</p>
                             <Link href="/sluzby" className="text-[10px] font-bold uppercase tracking-[0.2em] text-accent hover:text-foreground transition-colors whitespace-nowrap">
                               Zobraziť všetky služby
                             </Link>
