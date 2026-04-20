@@ -167,11 +167,11 @@ export function SiteHeader() {
                 stiffness: 400, 
                 mass: 1 
               }}
-              className="fixed bottom-0 left-0 right-0 z-[110] h-[70dvh] bg-white rounded-t-2xl shadow-[0_-15px_60px_rgba(0,0,0,0.15)] flex flex-col p-10 px-12 pb-[env(safe-area-inset-bottom,40px)]"
+              className="fixed bottom-0 left-0 right-0 z-[110] h-[70dvh] bg-white rounded-t-2xl shadow-[0_-15px_60px_rgba(0,0,0,0.15)] flex flex-col pt-3 px-8 pb-[env(safe-area-inset-bottom,40px)]"
             >
-              <div className="mx-auto mb-10 h-1.5 w-16 flex-shrink-0 rounded-full bg-zinc-200" />
+              <div className="mx-auto mb-6 h-1 w-12 flex-shrink-0 rounded-full bg-zinc-200" />
               
-              <div className="flex flex-col gap-8 overflow-y-auto pr-4 scrollbar-hide pb-10">
+              <div className="flex flex-col gap-6 overflow-y-auto pr-4 scrollbar-hide pb-10">
                 {navItems.map((item, idx) => {
                   const isActive = pathname === item.href || (item.href !== "/" && pathname.startsWith(item.href));
                   const isServices = item.label === "Služby";
