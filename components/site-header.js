@@ -71,14 +71,20 @@ export function SiteHeader() {
           })}
         </nav>
 
-        {/* Mobile Toggle */}
-        <button 
-          onClick={() => setIsOpen(!isOpen)}
-          className="flex h-10 w-10 items-center justify-center rounded-lg border border-line/20 bg-zinc-50 lg:hidden"
-          aria-label="Toggle Menu"
-        >
-          {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-        </button>
+        <div className="flex items-center gap-4">
+          <a href={`tel:${siteConfig.phone.replace(/\s+/g, "")}`} className="button-primary hidden lg:inline-flex !py-2.5 !px-5 !text-[11px]">
+            {siteConfig.phone}
+          </a>
+
+          {/* Mobile Toggle */}
+          <button 
+            onClick={() => setIsOpen(!isOpen)}
+            className="flex h-10 w-10 items-center justify-center rounded-lg border border-line/20 bg-zinc-50 lg:hidden"
+            aria-label="Toggle Menu"
+          >
+            {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu Overlay */}
