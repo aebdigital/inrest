@@ -95,38 +95,37 @@ export function SiteHeader() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.4, ease: "easeOut" }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
               onClick={() => setIsOpen(false)}
               className="absolute inset-0 bg-black/60 backdrop-blur-md"
             />
             <motion.div
-              initial={{ y: "100%" }}
+              initial={{ y: "105%" }}
               animate={{ y: 0 }}
-              exit={{ y: "100%" }}
+              exit={{ y: "105%" }}
               transition={{ 
                 type: "spring", 
-                damping: 35, 
-                stiffness: 300,
-                mass: 1,
-                restDelta: 0.001
+                damping: 38, 
+                stiffness: 400,
+                mass: 1
               }}
-              className="absolute bottom-0 left-0 right-0 h-[70dvh] bg-white rounded-t-[3rem] shadow-[0_-20px_80px_rgba(0,0,0,0.2)] flex flex-col p-10"
+              className="fixed bottom-0 left-0 right-0 z-60 h-[70dvh] bg-white rounded-t-[3rem] shadow-[0_-15px_60px_rgba(0,0,0,0.2)] flex flex-col p-10 pb-[env(safe-area-inset-bottom,40px)]"
             >
-              <div className="mx-auto mb-10 h-1.5 w-16 rounded-full bg-zinc-200" />
+              <div className="mx-auto mb-10 h-1.5 w-16 flex-shrink-0 rounded-full bg-zinc-200" />
               
-              <div className="flex flex-col gap-8">
+              <div className="flex flex-col gap-7 overflow-y-auto pr-4 scrollbar-hide">
                 {navItems.map((item, idx) => {
                   const isActive = pathname === item.href || (item.href !== "/" && pathname.startsWith(item.href));
                   return (
                     <motion.div
                       key={item.href}
-                      initial={{ opacity: 0, y: 20 }}
+                      initial={{ opacity: 0, y: 15 }}
                       animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.1 + idx * 0.06 }}
+                      transition={{ delay: 0.1 + idx * 0.04 }}
                     >
                       <Link 
                         href={item.href}
-                        className={`text-3xl font-extrabold tracking-[-0.04em] ${isActive ? "text-accent" : "text-zinc-900"}`}
+                        className={`text-3xl font-extrabold tracking-tight ${isActive ? "text-accent" : "text-zinc-900"}`}
                       >
                         {item.label}
                       </Link>
@@ -135,10 +134,10 @@ export function SiteHeader() {
                 })}
               </div>
 
-              <div className="mt-auto pt-8 border-t border-line/20">
-                <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-muted mb-4 opacity-50">Kontakt</p>
+              <div className="mt-auto pt-8 border-t border-line/10">
+                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted mb-4 opacity-50">Kontakt</p>
                 <div className="space-y-1">
-                  <p className="text-xl font-bold tracking-tighter text-zinc-900">{siteConfig.email}</p>
+                  <p className="text-lg font-bold tracking-tight text-zinc-900">{siteConfig.email}</p>
                 </div>
               </div>
             </motion.div>
