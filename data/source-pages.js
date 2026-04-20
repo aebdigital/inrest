@@ -351,24 +351,38 @@ export const realizationPages = [
       "Zdroj Martin, 7 800 m2",
       "Doprastav, a.s. Sungwoo Hitech Žilina, Most Ružomberok 11 300 m2",
       "PMP Púchov, 10 000 m2",
-      "Raven, a.s. Pov.Bystrica, Hradec Králové, 3 800 m2",
-      "Matador Holding a.s., Dubnica nad Váhom, Bratislava, Nitra 20 600 m2",
-      "Konštrukta Industry, a.s. 12 800 m2",
-      "KMS, s.r.o., Teplička nad Váhom 3 800 m2",
-      "SSC Žilina, Bratislava, 3 200 m2",
-      "Hastra, s.r.o., Sungoo ADM Hitech Žilina, Most Martin 4 700 m2",
-      "Mobis Žilina 2 300 m2",
-      "SBD Púchov, 7 600 m2",
-      "Mesto Trenčianske Teplice, 6 000 m2",
-      "Firesta, s.r.o., Most Horná Štubňa 3 800 m2",
-      "PSS a.s. Pov.Bystrica, 14 500 m2",
-      "FM Logistik (Poľsko / Sereď) - spolu 36 400 m2",
-      "Takenaka Europe GmbH VOLVO Košice 170 500 m2",
-      "Takenaka Europe GmbH Jaguar Land Rover Nitra 43 700 m2",
-      "KIA Slovakia Teplička nad Váhom 47 600 m2",
-      "Mondi SCP Ružomberok, Projekt PM 19 16 500 m2",
-      "Projekt: Oakwood – Bytča – 09/2025",
-      "Projekt: Winkelmann – Rimavská Sobota – 42 239 m2"
+      "Projekt: Volvo – Košice – Takenaka Europe GmbH – 3/2024 – 1/2026 (25 000 m2)",
+      "Projekt – Billa Tomášov – DOSA Slovakia, s.r.o. – 08/2025 (890 m2)",
+      "Projekt: Continental Púchov – MONOLIT Slovakia, s.r.o. – 07/2025 (2200 m2)",
+      "Projekt: Winkelmann – Rimavská Sobota – Metrostav Slovakia a.s. (12 000 m2)",
+      "Projekt: Prologis Senec Goldbeck – Fasáda (8 000 m2) + Priečky (2 000 m2)",
+      "Logisticko dodávateľské centrum Trnava Fáza II – Swietelsky (1 200 m2)",
+      "Projekt: Sklad surovín, Harmanec-Kuvert Brezno (3 800 m2)",
+      "SIKO BORY Metrostav 2022 (4 200 m2)",
+      "Projekt: Big George Goldbeck, s.r.o. Maďarsko 2023 (3 800 m2)",
+      "Projekt: Vaillant Senica Goldbeck – Fasáda (9 300 m2) + Strecha (23 500 m2)",
+      "Projekt – Jaguár Land Rover Nitra – Tunnels TAKENAKA (3 600 m2)",
+      "Projekt: SHP Harmanec – Výmena tr.plechu (1 200 m2)",
+      "Mondi SCP Ružomberok",
+      "GOLDBECK – Prologis – Šáš.Podhradie",
+      "Bažantnice – Lajosmizse – Maďarsko",
+      "DIConsulting – hala KOVO – Pov.Bystrica",
+      "GOLDBECK – Dachser – Lozorno",
+      "Monolit- Continentál – Púchov",
+      "MZP – Cukrovar – Sereď",
+      "TAKENAKA – G-tekt – Nitra",
+      "TAKENAKA – JLR – Nitra",
+      "ING STEEL – draka comteq",
+      "Trilaug – Heitec – Trenčianska Turná",
+      "Trilaug – Moreau agri – Madunice",
+      "TMT Chrudim – USS – Košice",
+      "ZVS holding – Snina",
+      "Trilaug – Unotech – Trenčín",
+      "DIConsulting – hala 44 -Pov.Bystrica",
+      "DIConsulting – administratívna budova č.258",
+      "GOLDBECK – Nová Polhora",
+      "KPS – Hokejová akadémia – Trenčín",
+      "GOLDBECK – Panattoni – Košice"
     ]
   },
   {
@@ -377,7 +391,7 @@ export const realizationPages = [
     "image": "/projects/realizacie/IMG_20250411_123632-scaled.jpg",
     "projects": [
       {
-        "title": "Project",
+        "title": "Projekt: Volvo – Košice – Takenaka Europe GmbH – 3/2024 – 1/2026",
         "gallery": [
           "/projects/realizacie/IMG-20250721-WA0018.jpg",
           "/projects/realizacie/IMG-20250721-WA0014.jpg",
@@ -390,7 +404,7 @@ export const realizationPages = [
         ]
       },
       {
-        "title": "Project",
+        "title": "Projekt – Billa Tomášov – DOSA Slovakia, s.r.o. – 08/2025",
         "gallery": [
           "/projects/realizacie/IMG_20251006_104238-scaled.jpg",
           "/projects/realizacie/IMG_20251006_102620-scaled.jpg",
@@ -400,7 +414,7 @@ export const realizationPages = [
         ]
       },
       {
-        "title": "Project",
+        "title": "Projekt: Continental Púchov – MONOLIT Slovakia, s.r.o. – 07/2025",
         "gallery": [
           "/projects/realizacie/IMG-20250723-WA0011.jpg",
           "/projects/realizacie/IMG_20250725_084059-scaled.jpg",
@@ -408,7 +422,7 @@ export const realizationPages = [
         ]
       },
       {
-        "title": "Project",
+        "title": "Projekt: Winkelmann – Rimavská Sobota – Metrostav Slovakia a.s. 12.2024 – 12.2025",
         "gallery": [
           "/projects/realizacie/IMG_20250916_101800-scaled.jpg",
           "/projects/realizacie/IMG_20250916_102345-scaled.jpg",
@@ -419,7 +433,7 @@ export const realizationPages = [
         ]
       },
       {
-        "title": "Project",
+        "title": "Projekt: Prologis Senec Goldbeck 3.2022 – 8.2022",
         "gallery": [
           "/projects/realizacie/20220324_134351.jpg",
           "/projects/realizacie/20220412_133231.jpg",
@@ -442,7 +456,7 @@ export const realizationPages = [
         ]
       },
       {
-        "title": "Project",
+        "title": "Projekt – Logisticko dodávateľské centrum Trnava Fáza II – Swietelsky-Slovakia spol. s r.o. – 06-09 2022",
         "gallery": [
           "/projects/realizacie/20221129_145707.jpg",
           "/projects/realizacie/20221129_145542.jpg",
@@ -456,7 +470,7 @@ export const realizationPages = [
         ]
       },
       {
-        "title": "Project",
+        "title": "Projekt: SKLAD SUROVÍN, HARMANEC-KUVERT Brezno – 2022",
         "gallery": [
           "/projects/realizacie/20221021_122618.jpg",
           "/projects/realizacie/20220923_115725.jpg",
@@ -468,7 +482,7 @@ export const realizationPages = [
         ]
       },
       {
-        "title": "Project",
+        "title": "SIKO BORY Metrostav 2022",
         "gallery": [
           "/projects/realizacie/SIKO-BA-BORY-final-06.2023-12.jpg",
           "/projects/realizacie/SIKO-BA-BORY-final-06.2023-6.jpg",
@@ -487,7 +501,7 @@ export const realizationPages = [
         ]
       },
       {
-        "title": "Project",
+        "title": "Projekt: Big George Goldbeck, s.r.o. Maďarsko 2023",
         "gallery": [
           "/projects/realizacie/20230125_125025.jpg",
           "/projects/realizacie/20230125_124720.jpg",
@@ -498,7 +512,7 @@ export const realizationPages = [
         ]
       },
       {
-        "title": "Project",
+        "title": "Projekt: Vaillant Senica Goldbeck, s.r.o. 08/2022 – 06/2023",
         "gallery": [
           "/projects/realizacie/20230630_115337.jpg",
           "/projects/realizacie/20230630_114344.jpg",
@@ -519,7 +533,7 @@ export const realizationPages = [
         ]
       },
       {
-        "title": "Project",
+        "title": "Projekt – Jaguár Land Rover Nitra – Tunnels TAKENAKA august – november 2021",
         "gallery": [
           "/projects/realizacie/aaa20210906_172139.jpg",
           "/projects/realizacie/20211203_133546.jpg",
@@ -536,7 +550,7 @@ export const realizationPages = [
         ]
       },
       {
-        "title": "Project",
+        "title": "Projekt: SHP Harmanec september 2021",
         "gallery": [
           "/projects/realizacie/20210927_143756.jpg",
           "/projects/realizacie/20211009_112223.jpg",
