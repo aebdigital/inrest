@@ -155,7 +155,7 @@ export function SiteHeader() {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3, ease: "easeOut" }}
               onClick={() => setIsOpen(false)}
-              className="absolute inset-0 bg-black/60 backdrop-blur-md"
+              className="absolute inset-0 bg-black/20"
             />
             <motion.div
               initial={{ y: "105%" }}
@@ -167,11 +167,11 @@ export function SiteHeader() {
                 stiffness: 400, 
                 mass: 1 
               }}
-              className="fixed bottom-0 left-0 right-0 z-[110] h-[70dvh] bg-white rounded-t-[3rem] shadow-[0_-15px_60px_rgba(0,0,0,0.2)] flex flex-col p-8 px-12 pb-[env(safe-area-inset-bottom,40px)]"
+              className="fixed bottom-0 left-0 right-0 z-[110] h-[70dvh] bg-white rounded-t-2xl shadow-[0_-15px_60px_rgba(0,0,0,0.15)] flex flex-col p-10 px-12 pb-[env(safe-area-inset-bottom,40px)]"
             >
               <div className="mx-auto mb-10 h-1.5 w-16 flex-shrink-0 rounded-full bg-zinc-200" />
               
-              <div className="flex flex-col gap-6 overflow-y-auto pr-4 scrollbar-hide pb-10">
+              <div className="flex flex-col gap-8 overflow-y-auto pr-4 scrollbar-hide pb-10">
                 {navItems.map((item, idx) => {
                   const isActive = pathname === item.href || (item.href !== "/" && pathname.startsWith(item.href));
                   const isServices = item.label === "Služby";
@@ -185,18 +185,18 @@ export function SiteHeader() {
                     >
                       <Link 
                         href={item.href}
-                        className={`inline-block translate-x-1 py-1 text-2xl font-bold tracking-wide ${isActive ? "text-accent" : "text-zinc-900"}`}
+                        className={`block py-1 text-2xl font-bold tracking-normal ${isActive ? "text-accent" : "text-zinc-900"}`}
                       >
                         {item.label}
                       </Link>
 
                       {isServices && (
-                        <div className="mt-4 grid grid-cols-1 gap-2 border-l border-line/20 pl-6">
+                        <div className="mt-5 grid grid-cols-1 gap-3 border-l-2 border-line/10 pl-8">
                           {servicePages.map((service) => (
                             <Link
                               key={service.slug}
                               href={`/sluzby/${service.slug}`}
-                              className="py-1.5 text-sm font-bold tracking-wider text-muted hover:text-foreground"
+                              className="py-1 text-[13px] font-bold uppercase tracking-wider text-muted hover:text-foreground"
                             >
                               {service.title}
                             </Link>
