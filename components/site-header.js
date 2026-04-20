@@ -90,46 +90,59 @@ export function SiteHeader() {
       {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {isOpen && (
-          <>
+          <div className="fixed inset-0 z-55 lg:hidden">
             <motion.div 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
+              transition={{ duration: 0.4, ease: "easeOut" }}
               onClick={() => setIsOpen(false)}
-              className="fixed inset-0 bg-black/40 backdrop-blur-sm lg:hidden"
+              className="absolute inset-0 bg-black/60 backdrop-blur-md"
             />
             <motion.div
               initial={{ y: "100%" }}
               animate={{ y: 0 }}
               exit={{ y: "100%" }}
-              transition={{ type: "spring", damping: 30, stiffness: 200 }}
-              className="fixed bottom-0 left-0 right-0 h-[70vh] bg-white rounded-t-[2.5rem] shadow-2xl z-55 flex flex-col p-8 lg:hidden"
+              transition={{ 
+                type: "spring", 
+                damping: 35, 
+                stiffness: 300,
+                mass: 1,
+                restDelta: 0.001
+              }}
+              className="absolute bottom-0 left-0 right-0 h-[70dvh] bg-white rounded-t-[3rem] shadow-[0_-20px_80px_rgba(0,0,0,0.2)] flex flex-col p-10"
             >
-              <div className="mx-auto mb-8 h-1.5 w-12 rounded-full bg-zinc-200" />
+              <div className="mx-auto mb-10 h-1.5 w-16 rounded-full bg-zinc-200" />
               
-              <div className="flex flex-col gap-6">
-                {navItems.map((item) => {
+              <div className="flex flex-col gap-8">
+                {navItems.map((item, idx) => {
                   const isActive = pathname === item.href || (item.href !== "/" && pathname.startsWith(item.href));
                   return (
-                    <Link 
-                      key={item.href} 
-                      href={item.href}
-                      className={`text-2xl font-bold tracking-tight ${isActive ? "text-accent" : "text-zinc-900"}`}
+                    <motion.div
+                      key={item.href}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.1 + idx * 0.06 }}
                     >
-                      {item.label}
-                    </Link>
+                      <Link 
+                        href={item.href}
+                        className={`text-3xl font-extrabold tracking-[-0.04em] ${isActive ? "text-accent" : "text-zinc-900"}`}
+                      >
+                        {item.label}
+                      </Link>
+                    </motion.div>
                   );
                 })}
               </div>
 
-              <div className="mt-auto pt-8 border-t border-line/40">
-                <p className="text-xs font-bold uppercase tracking-widest text-muted mb-4">Kontakt</p>
+              <div className="mt-auto pt-8 border-t border-line/20">
+                <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-muted mb-4 opacity-50">Kontakt</p>
                 <div className="space-y-1">
-                  <p className="text-muted">{siteConfig.email}</p>
+                  <p className="text-xl font-bold tracking-tighter text-zinc-900">{siteConfig.email}</p>
                 </div>
               </div>
             </motion.div>
-          </>
+          </div>
         )}
       </AnimatePresence>
     </header>
