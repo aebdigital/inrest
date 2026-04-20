@@ -1,6 +1,8 @@
 import { notFound } from "next/navigation";
 import { SidebarShell, SourceCopy } from "@/components/source-layout";
 import { findServicePage, servicePages } from "@/data/source-pages";
+import { Reveal } from "@/components/reveal";
+import Image from "next/image";
 import { absoluteUrl } from "@/lib/site";
 
 export function generateStaticParams() {
