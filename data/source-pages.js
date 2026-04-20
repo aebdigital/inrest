@@ -103,7 +103,15 @@ MAKROLON, TITAN-TATRAPLAST, ZENIT, RODA …
       "/projects/vyroba/vyroba-7.jpg",
       "/projects/vyroba/vyroba-8.jpg",
       "/projects/vyroba/vyroba-9.jpg",
-      "/projects/vyroba/vyroba-10.jpg"
+      "/projects/vyroba/vyroba-10.jpg",
+      "/projects/vyroba/vyroba-11.jpg",
+      "/projects/vyroba/vyroba-12.jpg",
+      "/projects/vyroba/vyroba-13.jpg",
+      "/projects/vyroba/vyroba-14.jpg",
+      "/projects/vyroba/vyroba-15.jpg",
+      "/projects/vyroba/vyroba-16.jpg",
+      "/projects/vyroba/vyroba-17.jpg",
+      "/projects/vyroba/vyroba-18.jpg"
     ],
     blocks: [],
   },
