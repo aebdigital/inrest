@@ -1,8 +1,9 @@
 import { notFound } from "next/navigation";
 import { SidebarShell, SourceCopy } from "@/components/source-layout";
-import { findServicePage, servicePages } from "@/data/source-pages";
+import { findServicePage, servicePages, findRealizationPage } from "@/data/source-pages";
 import { Reveal } from "@/components/reveal";
 import Image from "next/image";
+import Link from "next/link";
 import { absoluteUrl } from "@/lib/site";
 
 export function generateStaticParams() {
@@ -35,6 +36,17 @@ export default async function ServicePage({ params }) {
   if (!page) {
     notFound();
   }
+
+  // Find corresponding realization projects for specific services
+  const realizationSlugMap = {
+    "oplastenia-budov": "oplastenia-budov",
+    "hydroizolacie": "hydroizolacie",
+    "stresne-svetliky": "svetliky"
+  };
+
+  const realSlug = realizationSlugMap[slug];
+  const realizationPage = realSlug ? findRealizationPage(realSlug) : null;
+  const relatedProjects = realizationPage?.projects?.slice(0, 4) || [];
 
   return (
     <SidebarShell
@@ -90,10 +102,56 @@ export default async function ServicePage({ params }) {
             )}
           </div>
         ) : (
-          <div className="mt-6 grid gap-5">
-            {page.blocks.map((block, index) => (
-              <SourceCopy key={index}>{block}</SourceCopy>
-            ))}
+          <div className="flex flex-col gap-12">
+            <div className="grid gap-5">
+              {page.blocks.map((block, index) => (
+                <SourceCopy key={index}>{block}</SourceCopy>
+              ))}
+            </div>
+
+            {relatedProjects.length > 0 && (
+              <div className="mt-12 pt-12 border-t border-line/10">
+                <div className="mb-8 flex items-end justify-between gap-4">
+                  <div>
+                    <p className="section-kicker">Výber z realizácií</p>
+                    <h3 className="text-2xl font-bold tracking-tight uppercase tracking-[0.05em]">Referenčné projekty</h3>
+                  </div>
+                  <Link 
+                    href={`/realizacie/${realSlug}`}
+                    className="group flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-muted hover:text-foreground transition-all"
+                  >
+                    Všetky referencie
+                    <div className="h-[1px] w-5 bg-line group-hover:w-8 group-hover:bg-accent transition-all" />
+                  </Link>
+                </div>
+
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                  {relatedProjects.map((project, pIdx) => (
+                    <Reveal key={`rel-${pIdx}`} delay={pIdx * 50}>
+                      <Link 
+                        href={`/realizacie/${realSlug}/${pIdx}`}
+                        className="group flex flex-col border border-line/10 bg-white transition-all hover:border-accent/40"
+                      >
+                        <div className="relative aspect-square overflow-hidden bg-zinc-100">
+                          <Image 
+                            src={project.gallery[0]} 
+                            alt={project.title} 
+                            fill 
+                            className="object-cover transition-all duration-700 group-hover:scale-110" 
+                            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                          />
+                        </div>
+                        <div className="p-3">
+                          <h3 className="line-clamp-2 text-[10px] font-bold uppercase tracking-tight text-zinc-900 group-hover:text-accent transition-colors leading-tight">
+                            {project.title}
+                          </h3>
+                        </div>
+                      </Link>
+                    </Reveal>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         )}
       </article>
