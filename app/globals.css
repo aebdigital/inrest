@@ -8,8 +8,8 @@
   --line: rgba(0, 0, 0, 0.07);
   --text: #0f172a;
   --muted: #64748b;
-  --accent: #f59e0b;
-  --accent-soft: rgba(245, 158, 11, 0.12);
+  --accent: #2563eb;
+  --accent-soft: rgba(37, 99, 235, 0.12);
   --steel: #475569;
   --shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
 }
@@ -85,9 +85,9 @@ img {
 }
 
 .button-primary {
-  background: linear-gradient(135deg, #ffb647 0%, #f59e0b 100%);
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
   color: #ffffff;
-  box-shadow: 0 12px 30px rgba(245, 158, 11, 0.22);
+  box-shadow: 0 12px 30px rgba(37, 99, 235, 0.22);
 }
 
 .button-secondary {
@@ -317,7 +317,7 @@ img {
   right: -7rem;
   height: 20rem;
   width: 20rem;
-  background: rgba(245, 158, 11, 0.25);
+  background: rgba(37, 99, 235, 0.25);
 }
 
 .reveal {
@@ -420,7 +420,7 @@ img {
 .sidebar-link:hover,
 .sidebar-link.is-active {
   transform: translateX(4px);
-  border-color: rgba(245, 158, 11, 0.3);
+  border-color: rgba(37, 99, 235, 0.3);
   background: var(--accent-soft);
   color: var(--text);
 }
@@ -461,7 +461,7 @@ img {
 
 .source-link:hover {
   transform: translateY(-2px);
-  border-color: rgba(245, 158, 11, 0.3);
+  border-color: rgba(37, 99, 235, 0.3);
   color: var(--text);
 }
 
