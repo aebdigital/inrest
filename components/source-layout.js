@@ -20,7 +20,6 @@ export function SourceHero({ title, image }) {
         />
         <div className="absolute inset-0 bg-black/60" />
       </div>
-      
       <div className="shell relative z-10 flex h-full items-end pb-12">
         <Reveal>
           <h1 className="text-4xl font-bold tracking-tight text-white md:text-5xl lg:text-6xl">
@@ -34,9 +33,9 @@ export function SourceHero({ title, image }) {
 
 export function SidebarShell({ kicker, title, description, image, items, activeSlug, basePath, children }) {
   return (
-    <main className="relative pb-20">
-      <div className="page-orb page-orb-left" aria-hidden="true" />
-      <div className="page-orb page-orb-right" aria-hidden="true" />
+    <main className="relative pb-20 overflow-x-hidden">
+      <div className="page-orb page-orb-left pointer-events-none" aria-hidden="true" />
+      <div className="page-orb page-orb-right pointer-events-none" aria-hidden="true" />
       <SiteHeader />
       <SourceHero title={title} image={image} />
 
