@@ -125,7 +125,6 @@ export function SiteHeader() {
               <div className="mt-auto pt-8 border-t border-line/40">
                 <p className="text-xs font-bold uppercase tracking-widest text-muted mb-4">Kontakt</p>
                 <div className="space-y-1">
-                  <p className="font-bold">{siteConfig.phone}</p>
                   <p className="text-muted">{siteConfig.email}</p>
                 </div>
               </div>
