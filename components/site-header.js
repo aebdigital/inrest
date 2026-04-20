@@ -100,13 +100,13 @@ export function SiteHeader() {
                                     0{sidx + 1}
                                   </div>
                                 </div>
-                                <div className="flex flex-col gap-1 px-0.5">
+                                <div className="flex flex-col gap-1.5 px-0.5">
                                   <span className="hover-split-text text-[9px] font-bold uppercase tracking-wider text-muted group-hover/item:text-foreground transition-colors overflow-hidden">
                                     <span className="hover-split-text-inner" data-text={service.title}>
                                       {service.title}
                                     </span>
                                   </span>
-                                  <div className="h-[1.5px] w-0 bg-accent transition-all duration-500 group-hover/item:w-4" />
+                                  <div className="h-[1.5px] w-0 bg-accent transition-all duration-500 group-hover/item:w-full" />
                                 </div>
                               </Link>
                             ))}
