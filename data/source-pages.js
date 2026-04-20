@@ -68,7 +68,7 @@ MAKROLON, TITAN-TATRAPLAST, ZENIT, RODA …
       {
         text: `**Spoločnosť Inrest s.r.o.** ponúka spracovanie plechu pomocou CNC strojov, najrôznejších druhov a tvarov pre šikmé strechy, ploché strechy, opláštenia budov, okenné parapety a veľa ďalších klampiarských výrobkov podľa požiadaviek zákazníka.
 
-### Naše služby v oblasti klampiarskej výroby:
+Naše služby v oblasti klampiarskej výroby:
 - Ohýbanie plechov
 - Vysekávanie dier do plechov
 - Výroba klampiarskych prvkov
@@ -76,14 +76,14 @@ MAKROLON, TITAN-TATRAPLAST, ZENIT, RODA …
         image: "/projects/vyroba/vyroba-1.jpg"
       },
       {
-        text: `### Maximálna dĺžka ohybaných/hranených prvkov:
+        text: `Maximálna dĺžka ohybaných/hranených prvkov:
 - 6100 mm (pri hrúbke 0,5 až 1,25mm)
 - 3000 mm (pri hrúbke 1 až 5mm)
 
-### Poskytované materiály:
+Poskytované materiály:
 - Pozink, Hliník, Meď, Ral plechy, Dekor dreva, Čierny plech, Atikor/nerez, Poplast, Titanzinok
 
-### Dielenské vybavenie:
+Dielenské vybavenie:
 - CNC ohýbací stroj SAS HKS – CNC Profi
 - Hydraulické tabuľové nožnice DURMA VS 3006
 - Ohraňovací lis DURMA AD-S 30135
