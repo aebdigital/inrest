@@ -42,33 +42,31 @@ export function SidebarShell({ kicker, title, description, image, items, activeS
 
       <section className="shell py-20">
         <div className="sidebar-grid">
-          <aside className="source-sidebar mb-12 lg:mb-0">
-            <nav className="grid gap-3 pt-12">
+          <aside className="source-sidebar mb-8 lg:mb-0 lg:sticky lg:top-[11rem] z-20 bg-white/80 backdrop-blur-md lg:bg-transparent lg:backdrop-blur-none -mx-4 px-4 lg:mx-0 lg:px-0">
+            <nav className="flex lg:flex-col gap-3 overflow-x-auto lg:overflow-visible pb-4 lg:pb-0 scrollbar-hide pt-4 lg:pt-12">
               {items.map((item) => {
                 const href = item.slug ? `${basePath}/${item.slug}` : basePath;
                 const isActive = activeSlug === item.slug;
-                
-                // Stable "random" image from the category's projects
                 const previewImage = item.projects?.[0]?.gallery?.[0] || item.image || "/media/hero.jpg";
 
                 return (
                   <Link 
                     key={item.slug} 
                     href={href} 
-                    className={`group relative flex overflow-hidden border border-line/30 rounded-xl transition-all hover:border-accent/40 ${isActive ? "border-accent/50 shadow-md" : ""}`}
+                    className={`group relative flex-shrink-0 w-[160px] lg:w-full overflow-hidden border border-line/30 rounded-xl transition-all hover:border-accent/40 ${isActive ? "border-accent/50 shadow-md ring-2 ring-accent/10" : ""}`}
                   >
-                    <div className="relative aspect-[16/4] w-full overflow-hidden bg-black">
+                    <div className="relative aspect-[16/9] lg:aspect-[16/4] w-full overflow-hidden bg-black">
                       <Image 
                         src={previewImage} 
                         alt={item.title} 
                         fill 
                         className={`object-cover transition-all duration-700 ${isActive ? "grayscale-0 scale-105" : "grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-80 group-hover:scale-110"}`} 
-                        sizes="(max-width: 1024px) 100vw, 300px"
+                        sizes="(max-width: 1024px) 160px, 300px"
                         priority={isActive}
                       />
-                      <div className={`absolute inset-0 transition-colors duration-500 ${isActive ? "bg-black/20" : "bg-black/50 group-hover:bg-black/30"}`} />
+                      <div className={`absolute inset-0 transition-colors duration-500 ${isActive ? "bg-black/10" : "bg-black/50 group-hover:bg-black/30"}`} />
                       <div className="absolute inset-0 flex items-center justify-center pointer-events-none p-2">
-                        <span className={`text-center text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.25em] text-white transition-all duration-500 ${isActive ? "opacity-100 scale-105" : "opacity-90 group-hover:opacity-100 group-hover:scale-110"}`}>
+                        <span className={`text-center text-[9px] sm:text-[10px] lg:text-[11px] font-bold uppercase tracking-[0.2em] text-white transition-all duration-500 ${isActive ? "opacity-100 scale-105" : "opacity-90 group-hover:opacity-100 group-hover:scale-110"}`}>
                           {item.title}
                         </span>
                       </div>
