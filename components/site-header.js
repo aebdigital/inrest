@@ -79,34 +79,34 @@ export function SiteHeader() {
                   {isServices && (
                     <div className="invisible absolute left-1/2 top-full w-screen max-w-[100vw] -translate-x-1/2 transform pt-0 opacity-0 transition-all duration-300 group-hover:visible group-hover:opacity-100">
                       <div className="mt-0 overflow-hidden border-b border-line bg-white/95 shadow-[0_40px_100px_rgba(0,0,0,0.1)] backdrop-blur-xl">
-                        <div className="shell py-12 px-8">
-                          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                        <div className="shell py-10 px-4">
+                          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
                             {servicePages.map((service, sidx) => (
                               <Link
                                 key={service.slug}
                                 href={`/sluzby/${service.slug}`}
-                                className="group/item flex flex-col gap-4 p-4 rounded-2xl transition-all hover:bg-zinc-50"
+                                className="group/item flex flex-col gap-3 p-3 rounded-2xl transition-all hover:bg-zinc-50 border border-transparent hover:border-line/10"
                               >
-                                <div className="relative aspect-[16/10] overflow-hidden rounded-xl border border-line/10 bg-zinc-100">
+                                <div className="relative aspect-[16/11] overflow-hidden rounded-xl border border-line/10 bg-zinc-100">
                                   <Image 
                                     src={service.image} 
                                     alt={service.title} 
                                     fill 
                                     className="object-cover transition-transform duration-700 group-hover/item:scale-110" 
-                                    sizes="(max-width: 1200px) 25vw, 20vw"
+                                    sizes="200px"
                                   />
                                   <div className="absolute inset-0 bg-black/5 transition-opacity group-hover/item:opacity-0" />
-                                  <div className="absolute top-3 left-3 bg-white/90 backdrop-blur px-2 py-1 rounded text-[9px] font-black tracking-widest uppercase text-zinc-900">
+                                  <div className="absolute top-2 left-2 bg-white/90 backdrop-blur px-1.5 py-0.5 rounded text-[8px] font-black tracking-widest uppercase text-zinc-900">
                                     0{sidx + 1}
                                   </div>
                                 </div>
-                                <div className="flex items-center justify-between gap-2 px-1">
-                                  <span className="hover-split-text text-[11px] font-bold uppercase tracking-wider text-muted group-hover/item:text-foreground transition-colors">
+                                <div className="flex flex-col gap-1.5 px-0.5">
+                                  <span className="hover-split-text text-[9px] font-bold uppercase tracking-wider text-muted group-hover/item:text-foreground transition-colors overflow-hidden">
                                     <span className="hover-split-text-inner" data-text={service.title}>
                                       {service.title}
                                     </span>
                                   </span>
-                                  <div className="h-[1px] w-0 bg-accent transition-all duration-500 group-hover/item:w-6" />
+                                  <div className="h-[1.5px] w-0 bg-accent transition-all duration-500 group-hover/item:w-4" />
                                 </div>
                               </Link>
                             ))}
