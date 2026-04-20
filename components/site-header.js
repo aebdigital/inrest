@@ -72,7 +72,7 @@ export function SiteHeader() {
         </nav>
 
         <div className="flex items-center gap-4">
-          <a href={`tel:${siteConfig.phone.replace(/\s+/g, "")}`} className="button-primary hidden lg:inline-flex !py-2.5 !px-5 !text-[11px]">
+          <a href={`tel:${siteConfig.phone.replace(/\s+/g, "")}`} className="button-primary hidden xl:inline-flex !py-2.5 !px-5 !text-[11px]">
             {siteConfig.phone}
           </a>
 
