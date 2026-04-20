@@ -42,8 +42,8 @@ export function SidebarShell({ kicker, title, description, image, items, activeS
 
       <section className="shell py-20">
         <div className="sidebar-grid">
-          <aside className="source-sidebar mb-8 lg:mb-0 lg:sticky lg:top-[11rem] z-20 bg-white/95 backdrop-blur-md lg:bg-transparent lg:backdrop-blur-none border-b border-line/10 lg:border-none">
-            <nav className="flex lg:flex-col gap-3 overflow-x-auto lg:overflow-visible pb-4 lg:pb-0 scrollbar-hide pt-4 lg:pt-12">
+          <aside className="source-sidebar mb-8 lg:mb-0 lg:sticky lg:top-[11rem] z-20 bg-white/95 backdrop-blur-md lg:bg-transparent lg:backdrop-blur-none border-b border-line/10 lg:border-none overflow-hidden max-w-full">
+            <nav className="flex lg:flex-col gap-3 overflow-x-auto lg:overflow-visible pb-4 lg:pb-0 scrollbar-hide pt-4 lg:pt-12 w-full">
               {items.map((item) => {
                 const href = item.slug ? `${basePath}/${item.slug}` : basePath;
                 const isActive = activeSlug === item.slug;
