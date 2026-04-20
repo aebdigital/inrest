@@ -88,12 +88,14 @@ export const viewport = {
 };
 
 import { SiteFooter } from "@/components/site-footer";
+import { CookieCompliance } from "@/components/cookie-compliance";
 
 export default function RootLayout({ children }) {
   return (
     <html lang="sk">
       <body className={`${bodyFont.variable} ${headingFont.variable}`}>
         {children}
+        <CookieCompliance />
         <SiteFooter />
       </body>
     </html>

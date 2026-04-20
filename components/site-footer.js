@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { contacts } from "@/data/site-content";
 import { Reveal } from "./reveal";
 
@@ -56,10 +57,22 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="mt-16 flex flex-col sm:flex-row items-center justify-between gap-6 border-t border-line pt-8 text-[11px] uppercase tracking-[0.14em] text-muted/60">
+        <div className="mt-16 flex flex-col sm:flex-row items-center justify-between gap-6 border-t border-line pt-8 text-[10px] sm:text-[11px] uppercase tracking-[0.14em] text-muted/60">
           <p>© {new Date().getFullYear()} INREST s.r.o. Všetky práva vyhradené.</p>
-          <div className="flex gap-8">
-            <a href="#" className="hover:text-foreground transition-colors">Ochrana údajov</a>
+          <div className="flex gap-6 sm:gap-8">
+            <Link href="/ochrana-osobnych-udajov" className="hover:text-foreground transition-colors">
+              Ochrana údajov
+            </Link>
+            <button 
+              onClick={() => {
+                if (typeof window !== "undefined") {
+                  window.dispatchEvent(new CustomEvent("open-cookie-settings"));
+                }
+              }} 
+              className="hover:text-foreground transition-colors uppercase"
+            >
+              Cookies
+            </button>
             <a href="#" className="hover:text-foreground transition-colors">Obchodné podmienky</a>
           </div>
         </div>
