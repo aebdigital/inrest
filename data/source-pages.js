@@ -4,7 +4,6 @@ export const servicePages = [
     title: "Opláštenia budov",
     image: "/media/services-oplastenia.jpg",
     blocks: [
-      `1 Sendvičové panely`,
       `TRIMO, RUUKKI, KINGSPAN, BRUCHA, BALEXMETAL, PANELTECH, …`,
       `Továrensky vyrábaný produkt ktorý tvorí:
 - lakoplastovaný plech rôznych hrúbok, mikroprofilácií a širokej škále farebnosti
@@ -25,7 +24,6 @@ export const servicePages = [
     title: "Hydroizolácie",
     image: "/media/services-hydro.jpg",
     blocks: [
-      `2 Hydroizolácie`,
       `Hydroizolácie plochých striech, spodných stavieb na nových alebo starších rekonštruovaných objektoch s rôznymi systémovými riešeniami.`,
       `Afaltové pásy
 Bauder, KVK Parabit, BMI, …
@@ -49,7 +47,6 @@ FINALPUR, TOPSAFE ,…`,
     title: "Strešné svetlíky",
     image: "/media/services-svetliky.jpg",
     blocks: [
-      `3 Strešné svetlíky`,
       `Inštalácia svetlíkov na ocelovú alebo hliníkovú konštrukciu s rôznymi typmi prevedenia.`,
       `Svetlíky
 MAKROLON, TITAN-TATRAPLAST, ZENIT, RODA …
@@ -122,7 +119,6 @@ Dielenské vybavenie:
     title: "Nákladná autodoprava do 3.5t",
     image: "/media/hero.jpg",
     blocks: [
-      `5 Nákladná autodoprava do 3.5t`,
       `Zabezpečíme Vám služby v oblasti nákladnej autodopravy do 3,5t pomocou:`,
       `Iveco Daily – Valník : ložná plocha dĺžka 6,1m x šírka 2,08m`,
       `Vykonávame prepravu na celom území SR and ČR.`,
@@ -133,7 +129,6 @@ Dielenské vybavenie:
     title: "Ostatné služby",
     image: "/media/hero.jpg",
     blocks: [
-      `6 Ostatné služby`,
       `Elektroinštalácie`,
       `Za spolupráce s firmou MARNEL s.r.o. Vám vieme zabezpečiť elektroinštalačné práce na rodinných domoch ako aj na administratívnych a priemyselných objektoch.`,
       `Stavebné práce and rekonštrukcie`,
