@@ -158,31 +158,20 @@ export function SiteHeader() {
               className="absolute inset-0 bg-black/60 backdrop-blur-md"
             />
             <motion.div
-              initial={{ y: "-100%" }}
+              initial={{ y: "105%" }}
               animate={{ y: 0 }}
-              exit={{ y: "-100%" }}
-              transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
-              className="fixed inset-0 z-[110] flex flex-col bg-white p-10 pb-[env(safe-area-inset-bottom,40px)]"
+              exit={{ y: "105%" }}
+              transition={{ 
+                type: "spring", 
+                damping: 38, 
+                stiffness: 400, 
+                mass: 1 
+              }}
+              className="fixed bottom-0 left-0 right-0 z-[110] h-[70dvh] bg-white rounded-t-[3rem] shadow-[0_-15px_60px_rgba(0,0,0,0.2)] flex flex-col p-10 pb-[env(safe-area-inset-bottom,40px)]"
             >
-              <div className="flex items-center justify-between mb-12">
-                <div className="relative">
-                  <Image
-                    src="/media/logo.png"
-                    alt="INREST"
-                    width={140}
-                    height={40}
-                    className="h-8 w-auto"
-                  />
-                </div>
-                <button 
-                  onClick={() => setIsOpen(false)} 
-                  className="rounded-full border border-line/20 p-3 text-zinc-900 hover:bg-zinc-50 transition-colors"
-                >
-                  <X className="h-6 w-6" />
-                </button>
-              </div>
+              <div className="mx-auto mb-10 h-1.5 w-16 flex-shrink-0 rounded-full bg-zinc-200" />
               
-              <div className="flex flex-col gap-10 overflow-y-auto pr-4 scrollbar-hide pb-10">
+              <div className="flex flex-col gap-6 overflow-y-auto pr-4 scrollbar-hide pb-10">
                 {navItems.map((item, idx) => {
                   const isActive = pathname === item.href || (item.href !== "/" && pathname.startsWith(item.href));
                   const isServices = item.label === "Služby";
@@ -190,42 +179,27 @@ export function SiteHeader() {
                   return (
                     <motion.div
                       key={item.href}
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 0.1 + idx * 0.05 }}
+                      initial={{ opacity: 0, y: 15 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.1 + idx * 0.04 }}
                     >
                       <Link 
                         href={item.href}
-                        className={`group block text-4xl font-black uppercase tracking-tight ${isActive ? "text-accent" : "text-zinc-300 hover:text-zinc-900 transition-colors"}`}
+                        className={`text-3xl font-extrabold tracking-tight ${isActive ? "text-accent" : "text-zinc-900"}`}
                       >
-                        <span className="hover-split-text leading-tight">
-                          <span className="hover-split-text-inner" data-text={item.label}>
-                            {item.label}
-                          </span>
-                        </span>
+                        {item.label}
                       </Link>
 
                       {isServices && (
-                        <div className="mt-8 grid grid-cols-1 gap-6 border-l border-line/20 pl-8">
-                          {servicePages.map((service, sidx) => (
-                            <motion.div
+                        <div className="mt-4 grid grid-cols-1 gap-2 border-l border-line/20 pl-6">
+                          {servicePages.map((service) => (
+                            <Link
                               key={service.slug}
-                              initial={{ opacity: 0, x: -10 }}
-                              animate={{ opacity: 1, x: 0 }}
-                              transition={{ delay: 0.3 + sidx * 0.03 }}
+                              href={`/sluzby/${service.slug}`}
+                              className="py-1.5 text-sm font-bold tracking-wider text-muted hover:text-foreground"
                             >
-                              <Link
-                                href={`/sluzby/${service.slug}`}
-                                className="group/item flex items-center gap-4 py-1"
-                              >
-                                <div className="relative h-10 w-16 overflow-hidden rounded-lg bg-zinc-100 border border-line/10">
-                                  <Image src={service.image} alt={service.title} fill className="object-cover" sizes="64px" />
-                                </div>
-                                <span className="text-xs font-bold uppercase tracking-[0.1em] text-muted group-hover/item:text-foreground transition-colors">
-                                  {service.title}
-                                </span>
-                              </Link>
-                            </motion.div>
+                              {service.title}
+                            </Link>
                           ))}
                         </div>
                       )}
@@ -235,7 +209,7 @@ export function SiteHeader() {
               </div>
 
               <div className="mt-auto pt-8 border-t border-line/10">
-                <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-muted mb-4">Kontakt</p>
+                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted mb-4 opacity-50">Kontakt</p>
                 <div className="space-y-1">
                   <p className="text-xl font-bold tracking-tight text-zinc-900">{siteConfig.phone}</p>
                   <p className="text-base font-medium text-muted">{siteConfig.email}</p>
