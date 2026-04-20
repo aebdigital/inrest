@@ -63,33 +63,49 @@ MAKROLON, TITAN-TATRAPLAST, ZENIT, RODA …
   {
     slug: "vyroba-klampiarskych-prvkov",
     title: "Výroba klampiarskych prvkov",
-    image: "/media/services-klampiarske.jpg",
-    blocks: [
-      `4 Výroba klampiarskych prvkov`,
-      `Spoločnosť Inrest s.r.o. ponúka spracovanie plechu pomocou CNC strojov, najrôznejších druhov a tvarov pre šikmé strechy, ploché strechy, opláštenia budov, okenné parapety a veľa ďalších klampiarských výrobkov podľa požiadaviek zákazníka.`,
-      `Naše služby v oblasti klampiarskej výroby:
+    image: "/projects/vyroba/vyroba-1.jpg",
+    content: [
+      {
+        text: `**Spoločnosť Inrest s.r.o.** ponúka spracovanie plechu pomocou CNC strojov, najrôznejších druhov a tvarov pre šikmé strechy, ploché strechy, opláštenia budov, okenné parapety a veľa ďalších klampiarských výrobkov podľa požiadaviek zákazníka.
+
+### Naše služby v oblasti klampiarskej výroby:
 - Ohýbanie plechov
 - Vysekávanie dier do plechov
 - Výroba klampiarskych prvkov
 - Priečne a pozdĺžne rezanie plechov`,
-      `Maximálna dĺžka ohybaných/hranených prvkov:
+        image: "/projects/vyroba/vyroba-1.jpg"
+      },
+      {
+        text: `### Maximálna dĺžka ohybaných/hranených prvkov:
 - 6100 mm (pri hrúbke 0,5 až 1,25mm)
-- 3000 mm (pri hrúbke 1 až 5mm)`,
-      `Poskytované materiály:
-Pozink, Hliník, Meď, Ral plechy, Dekor dreva, Čierny plech, Atikor/nerez, Poplast, Titanzinok`,
-      `Dielenské vybavenie:
+- 3000 mm (pri hrúbke 1 až 5mm)
+
+### Poskytované materiály:
+- Pozink, Hliník, Meď, Ral plechy, Dekor dreva, Čierny plech, Atikor/nerez, Poplast, Titanzinok
+
+### Dielenské vybavenie:
 - CNC ohýbací stroj SAS HKS – CNC Profi
 - Hydraulické tabuľové nožnice DURMA VS 3006
 - Ohraňovací lis DURMA AD-S 30135
 - Segmentová ohýbačka schechtl a ERBEND
 - Odvíjačka plechu na prozdĺžne a priečne delenie plechu RULI
-- Vysekávací lis Boschert EccoLine`,
-      `Na požiadanie zákazníka vieme zabezpečiť odvodňovací systém, spojovací a tesniací materiál do 24h.`,
-      `DOPRAVA PRIAMO K VÁM!`,
-      `Adresa výroby: Robotnícka 258, PB
-Kontakt pre dopyty a objednávky:
-vyroba@inrestsro.sk | +421 918 740 484`,
+- Vysekávací lis Boschert EccoLine
+
+*Na požiadanie zákazníka vieme zabezpečiť odvodňovací systém, spojovací a tesniací materiál do 24h.*`,
+        image: "/projects/vyroba/vyroba-2.jpg"
+      }
     ],
+    gallery: [
+      "/projects/vyroba/vyroba-3.jpg",
+      "/projects/vyroba/vyroba-4.jpg",
+      "/projects/vyroba/vyroba-5.jpg",
+      "/projects/vyroba/vyroba-6.jpg",
+      "/projects/vyroba/vyroba-7.jpg",
+      "/projects/vyroba/vyroba-8.jpg",
+      "/projects/vyroba/vyroba-9.jpg",
+      "/projects/vyroba/vyroba-10.jpg"
+    ],
+    blocks: [],
   },
   {
     slug: "autodoprava",

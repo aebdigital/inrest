@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { siteConfig } from "@/lib/site";
 import { usePathname } from "next/navigation";
+import { servicePages } from "@/data/source-pages";
 
 const navItems = [
   { href: "/", label: "Úvod" },
@@ -58,16 +59,52 @@ export function SiteHeader() {
           <nav className="hidden items-center gap-8 text-[12px] font-bold uppercase tracking-[0.18em] text-muted lg:flex">
             {navItems.map((item) => {
               const isActive = pathname === item.href || (item.href !== "/" && pathname.startsWith(item.href));
+              const isServices = item.label === "Služby";
               
               return (
-                <Link 
-                  key={item.href} 
-                  href={item.href} 
-                  className={`group relative py-1 transition-colors hover:text-foreground ${isActive ? "text-foreground" : "text-muted"}`}
-                >
-                  {item.label}
-                  <span className={`absolute bottom-0 left-0 h-[2px] bg-[var(--accent)] transition-all duration-300 ease-out ${isActive ? "w-full" : "w-0 group-hover:w-full"}`} />
-                </Link>
+                <div key={item.href} className="group relative">
+                  <Link 
+                    href={item.href} 
+                    className={`relative flex items-center gap-1 py-6 transition-colors hover:text-foreground ${isActive ? "text-foreground" : "text-muted"}`}
+                  >
+                    {item.label}
+                    {isServices && (
+                      <svg className="h-3 w-3 transition-transform group-hover:rotate-180 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    )}
+                    <span className={`absolute bottom-5 left-0 h-[2px] bg-[var(--accent)] transition-all duration-300 ease-out ${isActive ? "w-full" : "w-0 group-hover:w-full"}`} />
+                  </Link>
+
+                  {isServices && (
+                    <div className="invisible absolute left-1/2 top-full w-72 -translate-x-1/2 transform pt-0 opacity-0 transition-all duration-300 group-hover:visible group-hover:opacity-100">
+                      <div className="mt-2 overflow-hidden rounded-2xl border border-line/20 bg-white shadow-2xl">
+                        <div className="bg-zinc-50/50 p-2">
+                          {servicePages.map((service) => (
+                            <Link
+                              key={service.slug}
+                              href={`/sluzby/${service.slug}`}
+                              className="group/item flex items-center gap-3 rounded-xl p-3 transition-colors hover:bg-white hover:shadow-sm"
+                            >
+                              <div className="relative h-10 w-10 flex-shrink-0 overflow-hidden rounded-lg bg-zinc-200">
+                                <Image 
+                                  src={service.image} 
+                                  alt={service.title} 
+                                  fill 
+                                  className="object-cover transition-transform duration-500 group-hover/item:scale-110" 
+                                  sizes="40px"
+                                />
+                              </div>
+                              <span className="text-[11px] font-bold tracking-wider text-muted transition-colors group-hover/item:text-foreground line-clamp-1">
+                                {service.title}
+                              </span>
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </div>
               );
             })}
           </nav>
@@ -115,9 +152,11 @@ export function SiteHeader() {
             >
               <div className="mx-auto mb-10 h-1.5 w-16 flex-shrink-0 rounded-full bg-zinc-200" />
               
-              <div className="flex flex-col gap-7 overflow-y-auto pr-4 scrollbar-hide">
+              <div className="flex flex-col gap-6 overflow-y-auto pr-4 scrollbar-hide pb-10">
                 {navItems.map((item, idx) => {
                   const isActive = pathname === item.href || (item.href !== "/" && pathname.startsWith(item.href));
+                  const isServices = item.label === "Služby";
+                  
                   return (
                     <motion.div
                       key={item.href}
@@ -131,6 +170,20 @@ export function SiteHeader() {
                       >
                         {item.label}
                       </Link>
+
+                      {isServices && (
+                        <div className="mt-4 grid grid-cols-1 gap-2 border-l border-line/20 pl-6">
+                          {servicePages.map((service) => (
+                            <Link
+                              key={service.slug}
+                              href={`/sluzby/${service.slug}`}
+                              className="py-1.5 text-sm font-bold tracking-wider text-muted hover:text-foreground"
+                            >
+                              {service.title}
+                            </Link>
+                          ))}
+                        </div>
+                      )}
                     </motion.div>
                   );
                 })}
