@@ -56,7 +56,7 @@ export function SiteHeader() {
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden items-center gap-8 text-[12px] font-bold uppercase tracking-[0.18em] text-muted lg:flex">
+          <nav className="hidden items-center gap-8 text-[12px] font-bold uppercase tracking-[0.02em] text-muted lg:flex">
             {navItems.map((item) => {
               const isActive = pathname === item.href || (item.href !== "/" && pathname.startsWith(item.href));
               const isServices = item.label === "Služby";
@@ -96,12 +96,12 @@ export function SiteHeader() {
                                     sizes="250px"
                                   />
                                   <div className="absolute inset-0 bg-black/5 transition-opacity group-hover/item:opacity-0" />
-                                  <div className="absolute top-2 left-2 bg-white/90 backdrop-blur px-1.5 py-0.5 rounded text-[8px] font-black tracking-widest uppercase text-zinc-900">
+                                  <div className="absolute top-2 left-2 bg-white/90 backdrop-blur px-1.5 py-0.5 rounded text-[8px] font-black uppercase text-zinc-900">
                                     0{sidx + 1}
                                   </div>
                                 </div>
                                 <div className="flex flex-col gap-1.5 px-0.5">
-                                  <span className="hover-split-text text-[9px] font-bold uppercase tracking-wider text-muted group-hover/item:text-foreground transition-colors overflow-hidden">
+                                  <span className="hover-split-text text-[9px] font-bold uppercase text-muted group-hover/item:text-foreground transition-colors overflow-hidden">
                                     <span className="hover-split-text-inner" data-text={service.title}>
                                       {service.title}
                                     </span>
@@ -114,8 +114,8 @@ export function SiteHeader() {
                         </div>
                         <div className="bg-zinc-50/50 px-8 py-5 border-t border-line/10">
                           <div className="shell flex items-center justify-between gap-4">
-                            <p className="text-[9px] font-bold uppercase tracking-[0.3em] text-muted opacity-40">Služby spoločnosti INREST s.r.o. — Komplexné riešenia pre priemysel a logistiku</p>
-                            <Link href="/sluzby" className="text-[10px] font-bold uppercase tracking-[0.2em] text-accent hover:text-foreground transition-colors whitespace-nowrap">
+                            <p className="text-[9px] font-bold uppercase tracking-[0.1em] text-muted opacity-40">Služby spoločnosti INREST s.r.o. — Komplexné riešenia pre priemysel a logistiku</p>
+                            <Link href="/sluzby" className="text-[10px] font-bold uppercase tracking-[0.1em] text-accent hover:text-foreground transition-colors whitespace-nowrap">
                               Zobraziť všetky služby
                             </Link>
                           </div>
@@ -196,7 +196,7 @@ export function SiteHeader() {
                             <Link
                               key={service.slug}
                               href={`/sluzby/${service.slug}`}
-                              className="py-1 text-[13px] font-bold uppercase tracking-wider text-muted hover:text-foreground"
+                              className="py-1 text-[13px] font-bold uppercase tracking-[0.1em] text-muted hover:text-foreground"
                             >
                               {service.title}
                             </Link>
@@ -209,7 +209,7 @@ export function SiteHeader() {
               </div>
 
               <div className="mt-auto pt-8 border-t border-line/10">
-                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted mb-4 opacity-50">Kontakt</p>
+                <p className="text-[10px] font-bold uppercase tracking-[0.02em] text-muted mb-4 opacity-50">Kontakt</p>
                 <div className="space-y-1">
                   <p className="text-xl font-bold tracking-tight text-zinc-900">{siteConfig.phone}</p>
                   <p className="text-base font-medium text-muted">{siteConfig.email}</p>

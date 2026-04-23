@@ -19,7 +19,20 @@ export function CookieCompliance() {
     if (!saved) {
       setShowBanner(true);
     } else {
-      setPreferences(JSON.parse(saved));
+      try {
+        const parsed = JSON.parse(saved);
+        if (typeof parsed === "object" && parsed !== null) {
+          setPreferences(parsed);
+        } else {
+          // If it's a string like "all" or other non-object, clear it
+          localStorage.removeItem("cookie-consent");
+          setShowBanner(true);
+        }
+      } catch (e) {
+        // Silently clear invalid JSON and show banner
+        localStorage.removeItem("cookie-consent");
+        setShowBanner(true);
+      }
     }
 
     // Listen for custom event to open modal from footer
@@ -64,7 +77,7 @@ export function CookieCompliance() {
                 </div>
                 <div className="space-y-4">
                   <div>
-                    <h3 className="text-sm font-black uppercase tracking-wider text-zinc-900">Súkromie a Cookies</h3>
+                    <h3 className="text-sm font-black uppercase text-zinc-900">Súkromie a Cookies</h3>
                     <p className="mt-1 text-xs leading-relaxed text-muted">
                       Používame cookies na zlepšenie vášho zážitku. Niektoré sú nevyhnutné, iné nám pomáhajú lepšie porozumieť vášmu dopytu.
                     </p>
@@ -72,20 +85,20 @@ export function CookieCompliance() {
                   <div className="flex flex-col gap-2">
                     <button
                       onClick={acceptAll}
-                      className="w-full rounded-full bg-accent py-2.5 text-[10px] font-bold uppercase tracking-widest text-white transition-transform hover:scale-[1.02] active:scale-[0.98]"
+                      className="w-full rounded-full bg-accent py-2.5 text-[10px] font-bold uppercase text-white transition-transform hover:scale-[1.02] active:scale-[0.98]"
                     >
                       Prijať všetko
                     </button>
                     <div className="flex gap-2">
                       <button
                         onClick={() => setShowModal(true)}
-                        className="flex-1 rounded-full border border-line bg-white py-2.5 text-[10px] font-bold uppercase tracking-widest text-muted transition-colors hover:bg-zinc-50"
+                        className="flex-1 rounded-full border border-line bg-white py-2.5 text-[10px] font-bold uppercase text-muted transition-colors hover:bg-zinc-50"
                       >
                         Nastavenia
                       </button>
                       <button
                         onClick={declineAll}
-                        className="flex-1 rounded-full border border-line bg-white py-2.5 text-[10px] font-bold uppercase tracking-widest text-muted transition-colors hover:bg-zinc-50"
+                        className="flex-1 rounded-full border border-line bg-white py-2.5 text-[10px] font-bold uppercase text-muted transition-colors hover:bg-zinc-50"
                       >
                         Odmietnuť
                       </button>
@@ -133,7 +146,7 @@ export function CookieCompliance() {
                   {/* Category: Essential */}
                   <div className="flex items-start justify-between gap-4 rounded-2xl border border-line p-5">
                     <div className="space-y-1">
-                      <p className="text-[11px] font-bold uppercase tracking-wider text-zinc-900">Nevyhnutné (Vždy aktívne)</p>
+                      <p className="text-[11px] font-bold uppercase text-zinc-900">Nevyhnutné (Vždy aktívne)</p>
                       <p className="text-[11px] leading-relaxed text-muted">Zabezpečujú stabilitu, bezpečnosť a základné funkcie webu.</p>
                     </div>
                     <div className="relative inline-flex h-6 w-11 shrink-0 cursor-not-allowed items-center rounded-full bg-zinc-200">
@@ -144,7 +157,7 @@ export function CookieCompliance() {
                   {/* Category: Analytics */}
                   <div className="flex items-start justify-between gap-4 rounded-2xl border border-line p-5">
                     <div className="space-y-1">
-                      <p className="text-[11px] font-bold uppercase tracking-wider text-zinc-900">Štatistické / Analytické</p>
+                      <p className="text-[11px] font-bold uppercase text-zinc-900">Štatistické / Analytické</p>
                       <p className="text-[11px] leading-relaxed text-muted">Umožňujú nám sledovať návštevnosť a optimalizovať obsah pre klientov.</p>
                     </div>
                     <button
@@ -158,7 +171,7 @@ export function CookieCompliance() {
                   {/* Category: Marketing */}
                   <div className="flex items-start justify-between gap-4 rounded-2xl border border-line p-5">
                     <div className="space-y-1">
-                      <p className="text-[11px] font-bold uppercase tracking-wider text-zinc-900">Marketingové</p>
+                      <p className="text-[11px] font-bold uppercase text-zinc-900">Marketingové</p>
                       <p className="text-[11px] leading-relaxed text-muted">Personalizácia dopytov a spätné oslovenie pri vašich požiadavkách.</p>
                     </div>
                     <button
@@ -173,19 +186,19 @@ export function CookieCompliance() {
                 <div className="mt-10 flex flex-col gap-3">
                   <button
                     onClick={() => saveConsent(preferences)}
-                    className="w-full rounded-full bg-zinc-900 py-3.5 text-[11px] font-bold uppercase tracking-widest text-white transition-transform hover:scale-[1.01]"
+                    className="w-full rounded-full bg-zinc-900 py-3.5 text-[11px] font-bold uppercase text-white transition-transform hover:scale-[1.01]"
                   >
                     Uložiť nastavenia
                   </button>
                   <button
                     onClick={acceptAll}
-                    className="w-full rounded-full bg-accent/10 py-3.5 text-[11px] font-bold uppercase tracking-widest text-accent transition-colors hover:bg-accent hover:text-white"
+                    className="w-full rounded-full bg-accent/10 py-3.5 text-[11px] font-bold uppercase text-accent transition-colors hover:bg-accent hover:text-white"
                   >
                     Povoliť všetky
                   </button>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         )}
       </AnimatePresence>

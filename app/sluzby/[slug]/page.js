@@ -93,6 +93,7 @@ export default async function ServicePage({ params }) {
                           fill 
                           className="object-cover transition-transform duration-500 group-hover:scale-110" 
                           sizes="(max-width: 768px) 50vw, 25vw"
+                          priority={idx < 4}
                         />
                       </div>
                     </Reveal>

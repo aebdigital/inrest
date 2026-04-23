@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { contacts } from "@/data/site-content";
 import { Reveal } from "./reveal";
@@ -10,7 +12,7 @@ export function SiteFooter() {
           {/* Main Info */}
           <div className="lg:col-span-4 space-y-6">
             <Reveal>
-              <p className="font-bold uppercase tracking-widest text-[14px] text-muted mb-4 text-[var(--accent)]">INREST, s. r. o.</p>
+              <p className="font-bold uppercase text-[14px] text-muted mb-4 text-[var(--accent)]">INREST, s. r. o.</p>
               <div className="text-sm leading-relaxed text-muted space-y-2">
                 <p>Lánska 64/961, 017 01 Považská Bystrica</p>
                 <div className="grid grid-cols-2 gap-2 pt-2">
@@ -46,7 +48,7 @@ export function SiteFooter() {
           <div className="lg:col-span-4 grid sm:grid-cols-2 gap-8 lg:gap-4 border-t lg:border-t-0 lg:border-l border-line pt-8 lg:pt-0 lg:pl-8">
             {contacts.map((person, i) => (
               <Reveal key={person.email} delay={200 + (i * 50)} className="space-y-3">
-                <p className="text-[10px] uppercase tracking-widest text-muted/60">{person.role}</p>
+                <p className="text-[10px] uppercase text-muted/60">{person.role}</p>
                 <p className="text-base font-semibold">{person.name}</p>
                 <div className="text-[13px] text-muted space-y-1 flex flex-col">
                   <a href={`tel:${person.phone.replace(/\s+/g, "")}`} className="hover:text-foreground">{person.phone}</a>
@@ -57,7 +59,7 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="mt-16 flex flex-col sm:flex-row items-center justify-between gap-6 border-t border-line pt-8 text-[10px] sm:text-[11px] uppercase tracking-[0.14em] text-muted/60">
+        <div className="mt-16 flex flex-col sm:flex-row items-center justify-between gap-6 border-t border-line pt-8 text-[10px] sm:text-[11px] uppercase tracking-[0.02em] text-muted/60">
           <p>© {new Date().getFullYear()} INREST s.r.o. Všetky práva vyhradené.</p>
           <div className="flex gap-6 sm:gap-8">
             <Link href="/ochrana-osobnych-udajov" className="hover:text-foreground transition-colors">
