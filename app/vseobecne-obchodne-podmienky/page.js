@@ -1,3 +1,4 @@
+import { FileText } from "lucide-react";
 import { Reveal } from "@/components/reveal";
 import { SiteHeader } from "@/components/site-header";
 import { SourceCopy, SourceHero } from "@/components/source-layout";
@@ -258,6 +259,18 @@ export default function VOPPage() {
                     Technické, výrobné alebo obchodné informácie (napr. informácie o cene za dielo, kalkulácie, rozpočty a pod.), s ktorými budú zmluvné strany oboznámené počas trvania zmluvného vzťahu sú predmetom obchodného tajomstva a to aj po ukončení zmluvného vzťahu. Zmluvné strany môžu využívať predmet obchodného tajomstva výlučne na účel dojednaný v Objednávke/Zmluve a nebudú ich sprístupňovať tretej osobe. Ak nie je možné doručiť akúkoľvek písomnosť alebo iný doklad medzi zmluvnými stranami adresátovi na adresu jeho sídla uvedenú v Zmluve o dielo alebo na adresu uvedenú v obchodnom alebo v živnostenskom registri, alebo ak adresát odmietne akúkoľvek písomnosť prevziať, považuje sa písomnosť za doručenú dňom nasledujúcim po dni vrátenia sa nedoručenej písomnosti späť odosielateľovi, a to aj vtedy, ak sa adresát o tom nedozvie. Zmluvné strany sa dohodli, že Z/P nesmie postúpiť a/alebo založiť pohľadávku, ktorá mu vznikne na základe Zmluvy o dielo a týchto všeobecných zmluvných podmienok alebo v súvislosti so Zmluvou o dielo a týmito všeobecnými zmluvnými podmienkami tretej osobe bez vopred daného písomného súhlasu O/K. Táto dohoda o zákaze postúpenia pohľadávky bez vopred daného písomného súhlasu O/K tvorí prekážku pre postúpenie pohľadávky v zmysle ustanovenia § 525 ods. 2 Občianskeho zákonníka v platnom znení. Zmeny a doplnenia Objednávky vyžadujú písomnú dohodu oboch Zmluvných strán, inak sú neplatné. Ak sa niektoré ustanovenia týchto VOP stane alebo bude vyhlásené za neplatné alebo neúčinné, nebude mať táto skutočnosť vplyv na platnosť alebo účinnosť ostatných ustanovení VOP. Zmluvné strany nahradia v čo najkratšom možnom čase neplatné alebo neúčinné ustanovenie VOP novým, ktoré bude v súlade so všeobecne záväznými právnymi predpismi SR. Keď sa v Objednávke alebo VOP používa výraz „bezodkladne“ alebo „bez zbytočného odkladu“, rozumie sa tým vykonanie príslušného úkonu najneskôr do 3 pracovných dní. Vzájomné vzťahy Zmluvných strán, neupravené Objednávkou a VOP, sa riadia príslušnými ustanoveniami Obchodného zákonníka v platnom znení a ostatných všeobecne záväzných právnych predpisov SR.
                   </SourceCopy>
                   <p className="pt-8 text-sm font-bold text-zinc-900 italic">Tieto všeobecné zmluvné podmienky sú platné a účinné od 01.05.2022.</p>
+                  
+                  <div className="pt-12 border-t border-line mt-12">
+                    <a 
+                      href="/VOP-Inrests.r.o.-01_05_2022.pdf" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="button-primary inline-flex items-center gap-3 px-8"
+                    >
+                      <FileText className="h-5 w-5" />
+                      <span>Všeobecné obchodné podmienky</span>
+                    </a>
+                  </div>
                 </div>
               </section>
             </div>
