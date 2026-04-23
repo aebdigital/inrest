@@ -10,7 +10,21 @@ import { sourceCertificatePage } from "@/data/source-pages";
 import { certifications } from "@/data/site-content";
 
 export function CertificatesContent() {
-  const [selectedCert, setSelectedCert] = useState(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const openLightbox = (index) => {
+    setCurrentIndex(index);
+    setIsOpen(true);
+  };
+
+  const nextCert = () => {
+    setCurrentIndex((prev) => (prev + 1) % certifications.length);
+  };
+
+  const prevCert = () => {
+    setCurrentIndex((prev) => (prev - 1 + certifications.length) % certifications.length);
+  };
 
   return (
     <>
@@ -26,7 +40,12 @@ export function CertificatesContent() {
           <SourceCopy>{sourceCertificatePage.intro}</SourceCopy>
           <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {certifications.map((cert, index) => (
-              <Reveal key={cert.title} delay={index * 50} className="cert-card cursor-pointer group" onClick={() => setSelectedCert(cert)}>
+              <Reveal 
+                key={cert.title} 
+                delay={index * 50} 
+                className="cert-card cursor-pointer group" 
+                onClick={() => openLightbox(index)}
+              >
                 <div className="cert-image-wrap !aspect-[3/4] relative overflow-hidden">
                   <Image 
                     src={cert.image} 
@@ -48,10 +67,13 @@ export function CertificatesContent() {
       </section>
 
       <Lightbox 
-        isOpen={!!selectedCert}
-        onClose={() => setSelectedCert(null)}
-        image={selectedCert?.image}
-        title={selectedCert?.title}
+        isOpen={isOpen}
+        onClose={() => setIsOpen(false)}
+        images={certifications.map(c => c.image)}
+        currentIndex={currentIndex}
+        onNext={nextCert}
+        onPrev={prevCert}
+        title={certifications[currentIndex]?.title}
       />
     </>
   );

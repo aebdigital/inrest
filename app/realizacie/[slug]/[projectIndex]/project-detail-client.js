@@ -9,7 +9,21 @@ import { SiteHeader } from "@/components/site-header";
 import { Lightbox } from "@/components/lightbox";
 
 export function ProjectDetailClient({ project, categoryTitle, categorySlug }) {
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const openLightbox = (index) => {
+    setCurrentIndex(index);
+    setIsOpen(true);
+  };
+
+  const nextImage = () => {
+    setCurrentIndex((prev) => (prev + 1) % project.gallery.length);
+  };
+
+  const prevImage = () => {
+    setCurrentIndex((prev) => (prev - 1 + project.gallery.length) % project.gallery.length);
+  };
 
   return (
     <main className="relative min-height-screen bg-zinc-50 pb-20">
@@ -47,7 +61,7 @@ export function ProjectDetailClient({ project, categoryTitle, categorySlug }) {
             <Reveal>
               <div 
                 className="relative aspect-[16/10] overflow-hidden rounded-xl border border-line/20 shadow-2xl cursor-zoom-in"
-                onClick={() => setSelectedImage(project.gallery[0])}
+                onClick={() => openLightbox(0)}
               >
                 <Image 
                   src={project.gallery[0]} 
@@ -74,7 +88,7 @@ export function ProjectDetailClient({ project, categoryTitle, categorySlug }) {
               <Reveal key={`gallery-${i}`} delay={i * 50}>
                 <div 
                   className="group relative aspect-square overflow-hidden rounded-lg bg-zinc-200 cursor-pointer"
-                  onClick={() => setSelectedImage(img)}
+                  onClick={() => openLightbox(i)}
                 >
                   <Image 
                     src={img} 
@@ -94,9 +108,12 @@ export function ProjectDetailClient({ project, categoryTitle, categorySlug }) {
       </div>
 
       <Lightbox 
-        isOpen={!!selectedImage}
-        onClose={() => setSelectedImage(null)}
-        image={selectedImage}
+        isOpen={isOpen}
+        onClose={() => setIsOpen(false)}
+        images={project.gallery}
+        currentIndex={currentIndex}
+        onNext={nextImage}
+        onPrev={prevImage}
         title={project.title}
       />
     </main>
