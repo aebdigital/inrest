@@ -75,7 +75,7 @@ export function SiteFooter() {
             >
               Cookies
             </button>
-            <a href="#" className="hover:text-foreground transition-colors">Obchodné podmienky</a>
+            <Link href="/vseobecne-obchodne-podmienky" className="hover:text-foreground transition-colors">Obchodné podmienky</Link>
           </div>
         </div>
       </div>
