@@ -143,46 +143,26 @@ export default function HomePage() {
         <div className="shell relative z-10 py-20">
           <div className="max-w-4xl space-y-8">
             <div className="space-y-4">
-              <motion.h1 
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-                className="hero-title text-white"
-              >
+              <h1 className="hero-title text-white">
                 INREST, s. r. o.
-              </motion.h1>
-              <motion.p 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
-                className="max-w-2xl text-xl leading-relaxed text-white/90 md:text-2xl"
-              >
+              </h1>
+              <p className="max-w-2xl text-xl leading-relaxed text-white/90 md:text-2xl">
                 Opláštenia budov, hydroizolácie, klampiarska výroba, investičné celky, stavebné práce a rekonštrukcie.
-              </motion.p>
+              </p>
             </div>
 
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut", delay: 0.6 }}
-              className="flex flex-wrap gap-4 pt-4"
-            >
+            <div className="flex flex-wrap gap-4 pt-4">
               <a href="/realizacie" className="button-primary">
                 Realizácie
               </a>
               <a href="#kontakt" className="button-secondary !border-white/20 !bg-white/10 !text-white backdrop-blur-sm">
                 Kontakt
               </a>
-            </motion.div>
+            </div>
 
-            <motion.p 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1, ease: "easeOut", delay: 0.8 }}
-              className="text-lg font-medium text-white/70"
-            >
+            <p className="text-lg font-medium text-white/70">
               Váš spoľahlivý dodávateľ od roku 2009.
-            </motion.p>
+            </p>
           </div>
         </div>
       </section>
