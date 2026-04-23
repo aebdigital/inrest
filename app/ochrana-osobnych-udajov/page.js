@@ -1,3 +1,4 @@
+import { Download } from "lucide-react";
 import { Reveal } from "@/components/reveal";
 import { SiteHeader } from "@/components/site-header";
 import { SourceCopy, SourceHero } from "@/components/source-layout";
@@ -301,6 +302,17 @@ export default function PrivacyPage() {
                     <p className="text-sm font-bold text-zinc-900 uppercase">Pavol Fraštík</p>
                     <p className="text-[10px] text-muted uppercase tracking-widest">konateľ spoločnosti</p>
                   </div>
+                </div>
+
+                <div className="pt-12 border-t border-line mt-12">
+                  <a 
+                    href="/informačná-povinnosť-INREST.docx" 
+                    download
+                    className="button-primary inline-flex items-center gap-3 px-8"
+                  >
+                    <Download className="h-5 w-5" />
+                    <span>Informačná povinnosť (DOCX)</span>
+                  </a>
                 </div>
               </section>
             </div>
