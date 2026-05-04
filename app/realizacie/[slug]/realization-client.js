@@ -32,11 +32,12 @@ export function RealizationClient({ page, realizationPages }) {
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                   priority={pIdx < 4}
                 />
-              </div>
-              <div className="p-3">
-                <h3 className="line-clamp-2 text-[11px] font-bold uppercase tracking-tight text-zinc-900 group-hover:text-accent transition-colors leading-tight">
-                  {project.title}
-                </h3>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-100 transition-opacity" />
+                <div className="absolute inset-0 flex items-end p-4">
+                  <h3 className="line-clamp-2 text-[10px] font-bold uppercase tracking-tight text-white leading-tight">
+                    {project.title}
+                  </h3>
+                </div>
               </div>
             </Link>
           </Reveal>

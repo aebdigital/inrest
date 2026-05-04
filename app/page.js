@@ -54,7 +54,7 @@ export default function HomePage() {
         "@id": absoluteUrl("/#organization"),
         name: siteConfig.legalName,
         url: siteConfig.url,
-        logo: absoluteUrl("/media/logo.png"),
+        logo: absoluteUrl("/Transparent pozadie.png"),
         email: siteConfig.email,
         telephone: siteConfig.phone,
       },

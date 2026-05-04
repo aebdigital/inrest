@@ -16,7 +16,7 @@ const navItems = [
 ];
 
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Mail, Phone } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export function SiteHeader() {
@@ -42,11 +42,25 @@ export function SiteHeader() {
 
   return (
     <>
-      <header className="fixed top-0 z-50 w-full max-w-full bg-white/90 border-b border-line backdrop-blur-md">
-        <div className="shell flex items-center justify-between gap-8 py-5">
+      <header className="fixed top-0 z-50 w-full max-w-full bg-white/95 border-b border-line backdrop-blur-md shadow-sm">
+        {/* Top Bar */}
+        <div className="hidden lg:block bg-[#004a99] text-white/90 py-2.5 text-[11px] font-bold uppercase tracking-[0.1em]">
+          <div className="shell flex justify-end items-center gap-8">
+            <a href={`mailto:${siteConfig.email}`} className="flex items-center gap-2.5 hover:text-white transition-colors">
+              <Mail className="h-3.5 w-3.5 opacity-60" />
+              <span>{siteConfig.email}</span>
+            </a>
+            <a href={`tel:${siteConfig.phone.replace(/\s+/g, "")}`} className="flex items-center gap-2.5 hover:text-white transition-colors">
+              <Phone className="h-3.5 w-3.5 opacity-60" />
+              <span>{siteConfig.phone}</span>
+            </a>
+          </div>
+        </div>
+
+        <div className="shell flex items-center justify-between gap-8 py-3">
           <Link href="/" className="flex items-center gap-3">
             <Image
-              src="/media/logo.png"
+              src="/Transparent pozadie.png"
               alt="INREST"
               width={200}
               height={56}
@@ -56,8 +70,8 @@ export function SiteHeader() {
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden items-center gap-8 text-[12px] font-bold uppercase tracking-[0.02em] text-muted lg:flex">
-            {navItems.map((item) => {
+          <nav className="hidden items-center gap-8 text-[13px] font-black uppercase tracking-[0.12em] text-foreground lg:flex">
+            {navItems.filter(item => item.label !== "Kontakt").map((item) => {
               const isActive = pathname === item.href || (item.href !== "/" && pathname.startsWith(item.href));
               const isServices = item.label === "Služby";
               
@@ -65,19 +79,19 @@ export function SiteHeader() {
                 <div key={item.href} className="group relative">
                   <Link 
                     href={item.href} 
-                    className={`relative flex items-center gap-1 py-6 transition-colors hover:text-foreground ${isActive ? "text-foreground" : "text-muted"}`}
+                    className={`relative flex items-center gap-1.5 py-6 transition-all duration-300 hover:text-accent ${isActive ? "text-accent" : "text-foreground"}`}
                   >
                     {item.label}
                     {isServices && (
-                      <svg className="h-3 w-3 transition-transform group-hover:rotate-180 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <svg className="h-3 w-3 transition-transform group-hover:rotate-180 opacity-40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M19 9l-7 7-7-7" />
                       </svg>
                     )}
-                    <span className={`absolute bottom-5 left-0 h-[2px] bg-[var(--accent)] transition-all duration-300 ease-out ${isActive ? "w-full" : "w-0 group-hover:w-full"}`} />
+                    <span className={`absolute bottom-5 left-0 h-[2px] bg-accent transition-all duration-300 ease-out ${isActive ? "w-full" : "w-0 group-hover:w-full"}`} />
                   </Link>
 
                   {isServices && (
-                    <div className="invisible fixed left-0 top-[86px] w-full max-w-[100vw] opacity-0 transition-all duration-300 group-hover:visible group-hover:opacity-100 z-50">
+                    <div className="invisible fixed left-0 top-[128px] w-full max-w-[100vw] opacity-0 transition-all duration-300 group-hover:visible group-hover:opacity-100 z-50">
                       <div className="overflow-hidden border-b border-line bg-white/95 shadow-[0_40px_100px_rgba(0,0,0,0.1)] backdrop-blur-xl">
                         <div className="shell py-10 px-8">
                           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-5">
@@ -101,7 +115,7 @@ export function SiteHeader() {
                                   </div>
                                 </div>
                                 <div className="flex flex-col gap-1.5 px-0.5">
-                                  <span className="hover-split-text text-[9px] font-bold uppercase text-muted group-hover/item:text-foreground transition-colors overflow-hidden">
+                                  <span className="hover-split-text text-[11px] font-black uppercase text-zinc-900 overflow-hidden">
                                     <span className="hover-split-text-inner" data-text={service.title}>
                                       {service.title}
                                     </span>
@@ -110,14 +124,6 @@ export function SiteHeader() {
                                 </div>
                               </Link>
                             ))}
-                          </div>
-                        </div>
-                        <div className="bg-zinc-50/50 px-8 py-5 border-t border-line/10">
-                          <div className="shell flex items-center justify-between gap-4">
-                            <p className="text-[9px] font-bold uppercase tracking-[0.1em] text-muted opacity-40">Služby spoločnosti INREST s.r.o. — Komplexné riešenia pre priemysel a logistiku</p>
-                            <Link href="/sluzby" className="text-[10px] font-bold uppercase tracking-[0.1em] text-accent hover:text-foreground transition-colors whitespace-nowrap">
-                              Zobraziť všetky služby
-                            </Link>
                           </div>
                         </div>
                       </div>
@@ -129,9 +135,9 @@ export function SiteHeader() {
           </nav>
 
           <div className="flex items-center gap-4">
-            <a href={`tel:${siteConfig.phone.replace(/\s+/g, "")}`} className="button-primary hidden xl:inline-flex !py-2.5 !px-5 !text-[11px]">
-              {siteConfig.phone}
-            </a>
+            <Link href="/kontakt" className="button-primary hidden xl:inline-flex !py-2.5 !px-7 !text-[11px] !rounded-full">
+              Kontakt
+            </Link>
 
             {/* Mobile Toggle */}
             <button 

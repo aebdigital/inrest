@@ -44,7 +44,6 @@ export function ProjectDetailClient({ project, categoryTitle, categorySlug }) {
           {/* Left Side: Text */}
           <div className="lg:w-[40%]">
             <Reveal>
-              <p className="section-kicker">Detail Realizácie</p>
               <h1 className="mt-4 text-4xl font-bold uppercase tracking-tighter text-zinc-900 md:text-5xl lg:text-6xl">
                 {project.title}
               </h1>

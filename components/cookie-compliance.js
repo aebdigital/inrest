@@ -104,9 +104,6 @@ export function CookieCompliance() {
                       </button>
                     </div>
                   </div>
-                  <p className="text-[9px] text-center text-muted/60">
-                    Viac v sekcii <Link href="/ochrana-osobnych-udajov" className="underline hover:text-accent">Ochrana údajov</Link>
-                  </p>
                 </div>
               </div>
             </div>
